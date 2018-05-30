@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Entity;
+namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,7 +21,7 @@ class Section
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ConfigSection", mappedBy="section")
+     * @ORM\OneToMany(targetEntity="App\Entity\ConfigSection", mappedBy="section")
      */
     private $configSection;
 
@@ -78,11 +78,11 @@ class Section
     /**
      * Add configSection
      *
-     * @param \AppBundle\Entity\ConfigSection $configSection
+     * @param \App\Entity\ConfigSection $configSection
      *
      * @return Section
      */
-    public function addConfigSection(\AppBundle\Entity\ConfigSection $configSection)
+    public function addConfigSection(\App\Entity\ConfigSection $configSection)
     {
         $this->configSection[] = $configSection;
 
@@ -92,9 +92,9 @@ class Section
     /**
      * Remove configSection
      *
-     * @param \AppBundle\Entity\ConfigSection $configSection
+     * @param \App\Entity\ConfigSection $configSection
      */
-    public function removeConfigSection(\AppBundle\Entity\ConfigSection $configSection)
+    public function removeConfigSection(\App\Entity\ConfigSection $configSection)
     {
         $this->configSection->removeElement($configSection);
     }

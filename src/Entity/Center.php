@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -106,69 +106,69 @@ class Center
     // ..........
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Region", inversedBy="center")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Region", inversedBy="center")
      * @ORM\JoinColumn(name="region_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $region;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\City", inversedBy="center")
+     * @ORM\ManyToOne(targetEntity="App\Entity\City", inversedBy="center")
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $city;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="center")
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Field", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Field", mappedBy="center")
      */
     private $field;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Session", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="center")
      */
     private $session;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Customer", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Customer", mappedBy="center")
      */
     private $customer;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="center")
      */
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="center")
      */
     private $event;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Effective", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Effective", mappedBy="center")
      */
     private $effective;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ConfigSection", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\ConfigSection", mappedBy="center")
      */
     private $configSection;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Bill", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Bill", mappedBy="center")
      */
     private $bill;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Service", mappedBy="center")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Service", mappedBy="center")
      */
     private $service;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Notification", mappedBy="center")
+     * @ORM\OneToMany(targetEntity="App\Entity\Notification", mappedBy="center")
      */
     private $notification;
     
@@ -260,11 +260,11 @@ class Center
     /**
      * Add user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \App\Entity\User $user
      *
      * @return Center
      */
-    public function addUser(\AppBundle\Entity\User $user)
+    public function addUser(\App\Entity\User $user)
     {
         $this->user[] = $user;
 
@@ -274,9 +274,9 @@ class Center
     /**
      * Remove user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \App\Entity\User $user
      */
-    public function removeUser(\AppBundle\Entity\User $user)
+    public function removeUser(\App\Entity\User $user)
     {
         $this->user->removeElement($user);
     }
@@ -294,11 +294,11 @@ class Center
     /**
      * Add field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      *
      * @return Center
      */
-    public function addField(\AppBundle\Entity\Field $field)
+    public function addField(\App\Entity\Field $field)
     {
         $this->field[] = $field;
 
@@ -308,9 +308,9 @@ class Center
     /**
      * Remove field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      */
-    public function removeField(\AppBundle\Entity\Field $field)
+    public function removeField(\App\Entity\Field $field)
     {
         $this->field->removeElement($field);
     }
@@ -328,11 +328,11 @@ class Center
     /**
      * Add session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      *
      * @return Center
      */
-    public function addSession(\AppBundle\Entity\Session $session)
+    public function addSession(\App\Entity\Session $session)
     {
         $this->session[] = $session;
 
@@ -342,9 +342,9 @@ class Center
     /**
      * Remove session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      */
-    public function removeSession(\AppBundle\Entity\Session $session)
+    public function removeSession(\App\Entity\Session $session)
     {
         $this->session->removeElement($session);
     }
@@ -362,11 +362,11 @@ class Center
     /**
      * Add customer
      *
-     * @param \AppBundle\Entity\Customer $customer
+     * @param \App\Entity\Customer $customer
      *
      * @return Center
      */
-    public function addCustomer(\AppBundle\Entity\Customer $customer)
+    public function addCustomer(\App\Entity\Customer $customer)
     {
         $this->customer[] = $customer;
 
@@ -376,9 +376,9 @@ class Center
     /**
      * Remove customer
      *
-     * @param \AppBundle\Entity\Customer $customer
+     * @param \App\Entity\Customer $customer
      */
-    public function removeCustomer(\AppBundle\Entity\Customer $customer)
+    public function removeCustomer(\App\Entity\Customer $customer)
     {
         $this->customer->removeElement($customer);
     }
@@ -468,11 +468,11 @@ class Center
     /**
      * Add image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param \App\Entity\Image $image
      *
      * @return Center
      */
-    public function addImage(\AppBundle\Entity\Image $image)
+    public function addImage(\App\Entity\Image $image)
     {
         $this->image[] = $image;
 
@@ -482,9 +482,9 @@ class Center
     /**
      * Remove image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param \App\Entity\Image $image
      */
-    public function removeImage(\AppBundle\Entity\Image $image)
+    public function removeImage(\App\Entity\Image $image)
     {
         $this->image->removeElement($image);
     }
@@ -574,11 +574,11 @@ class Center
     /**
      * Set region
      *
-     * @param \AppBundle\Entity\Region $region
+     * @param \App\Entity\Region $region
      *
      * @return Center
      */
-    public function setRegion(\AppBundle\Entity\Region $region = null)
+    public function setRegion(\App\Entity\Region $region = null)
     {
         $this->region = $region;
 
@@ -588,7 +588,7 @@ class Center
     /**
      * Get region
      *
-     * @return \AppBundle\Entity\Region
+     * @return \App\Entity\Region
      */
     public function getRegion()
     {
@@ -600,11 +600,11 @@ class Center
     /**
      * Set city
      *
-     * @param \AppBundle\Entity\City $city
+     * @param \App\Entity\City $city
      *
      * @return Center
      */
-    public function setCity(\AppBundle\Entity\City $city = null)
+    public function setCity(\App\Entity\City $city = null)
     {
         $this->city = $city;
 
@@ -614,7 +614,7 @@ class Center
     /**
      * Get city
      *
-     * @return \AppBundle\Entity\City
+     * @return \App\Entity\City
      */
     public function getCity()
     {
@@ -624,11 +624,11 @@ class Center
     /**
      * Add event
      *
-     * @param \AppBundle\Entity\Event $event
+     * @param \App\Entity\Event $event
      *
      * @return Center
      */
-    public function addEvent(\AppBundle\Entity\Event $event)
+    public function addEvent(\App\Entity\Event $event)
     {
         $this->event[] = $event;
 
@@ -638,9 +638,9 @@ class Center
     /**
      * Remove event
      *
-     * @param \AppBundle\Entity\Event $event
+     * @param \App\Entity\Event $event
      */
-    public function removeEvent(\AppBundle\Entity\Event $event)
+    public function removeEvent(\App\Entity\Event $event)
     {
         $this->event->removeElement($event);
     }
@@ -658,11 +658,11 @@ class Center
     /**
      * Add effective
      *
-     * @param \AppBundle\Entity\Effective $effective
+     * @param \App\Entity\Effective $effective
      *
      * @return Center
      */
-    public function addEffective(\AppBundle\Entity\Effective $effective)
+    public function addEffective(\App\Entity\Effective $effective)
     {
         $this->effective[] = $effective;
 
@@ -672,9 +672,9 @@ class Center
     /**
      * Remove effective
      *
-     * @param \AppBundle\Entity\Effective $effective
+     * @param \App\Entity\Effective $effective
      */
-    public function removeEffective(\AppBundle\Entity\Effective $effective)
+    public function removeEffective(\App\Entity\Effective $effective)
     {
         $this->effective->removeElement($effective);
     }
@@ -692,11 +692,11 @@ class Center
     /**
      * Add configSection
      *
-     * @param \AppBundle\Entity\ConfigSection $configSection
+     * @param \App\Entity\ConfigSection $configSection
      *
      * @return Center
      */
-    public function addConfigSection(\AppBundle\Entity\ConfigSection $configSection)
+    public function addConfigSection(\App\Entity\ConfigSection $configSection)
     {
         $this->configSection[] = $configSection;
 
@@ -706,9 +706,9 @@ class Center
     /**
      * Remove configSection
      *
-     * @param \AppBundle\Entity\ConfigSection $configSection
+     * @param \App\Entity\ConfigSection $configSection
      */
-    public function removeConfigSection(\AppBundle\Entity\ConfigSection $configSection)
+    public function removeConfigSection(\App\Entity\ConfigSection $configSection)
     {
         $this->configSection->removeElement($configSection);
     }
@@ -750,11 +750,11 @@ class Center
     /**
      * Add bill
      *
-     * @param \AppBundle\Entity\Bill $bill
+     * @param \App\Entity\Bill $bill
      *
      * @return Center
      */
-    public function addBill(\AppBundle\Entity\Bill $bill)
+    public function addBill(\App\Entity\Bill $bill)
     {
         $this->bill[] = $bill;
 
@@ -764,9 +764,9 @@ class Center
     /**
      * Remove bill
      *
-     * @param \AppBundle\Entity\Bill $bill
+     * @param \App\Entity\Bill $bill
      */
-    public function removeBill(\AppBundle\Entity\Bill $bill)
+    public function removeBill(\App\Entity\Bill $bill)
     {
         $this->bill->removeElement($bill);
     }
@@ -784,11 +784,11 @@ class Center
     /**
      * Add service
      *
-     * @param \AppBundle\Entity\Service $service
+     * @param \App\Entity\Service $service
      *
      * @return Center
      */
-    public function addService(\AppBundle\Entity\Service $service)
+    public function addService(\App\Entity\Service $service)
     {
         $this->service[] = $service;
 
@@ -798,9 +798,9 @@ class Center
     /**
      * Remove service
      *
-     * @param \AppBundle\Entity\Service $service
+     * @param \App\Entity\Service $service
      */
-    public function removeService(\AppBundle\Entity\Service $service)
+    public function removeService(\App\Entity\Service $service)
     {
         $this->service->removeElement($service);
     }
@@ -842,11 +842,11 @@ class Center
     /**
      * Add notification.
      *
-     * @param \AppBundle\Entity\Notification $notification
+     * @param \App\Entity\Notification $notification
      *
      * @return Center
      */
-    public function addNotification(\AppBundle\Entity\Notification $notification)
+    public function addNotification(\App\Entity\Notification $notification)
     {
         $this->notification[] = $notification;
 
@@ -856,11 +856,11 @@ class Center
     /**
      * Remove notification.
      *
-     * @param \AppBundle\Entity\Notification $notification
+     * @param \App\Entity\Notification $notification
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeNotification(\AppBundle\Entity\Notification $notification)
+    public function removeNotification(\App\Entity\Notification $notification)
     {
         return $this->notification->removeElement($notification);
     }

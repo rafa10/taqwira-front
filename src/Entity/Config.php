@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -29,7 +29,7 @@ class Config
     private $valeur;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ConfigSection", inversedBy="config")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ConfigSection", inversedBy="config")
      * @ORM\JoinColumn(name="config_section_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $configSection;
@@ -95,11 +95,11 @@ class Config
     /**
      * Set configSection
      *
-     * @param \AppBundle\Entity\ConfigSection $configSection
+     * @param \App\Entity\ConfigSection $configSection
      *
      * @return Config
      */
-    public function setConfigSection(\AppBundle\Entity\ConfigSection $configSection = null)
+    public function setConfigSection(\App\Entity\ConfigSection $configSection = null)
     {
         $this->configSection = $configSection;
 
@@ -109,7 +109,7 @@ class Config
     /**
      * Get configSection
      *
-     * @return \AppBundle\Entity\ConfigSection
+     * @return \App\Entity\ConfigSection
      */
     public function getConfigSection()
     {

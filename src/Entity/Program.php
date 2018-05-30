@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,26 +19,26 @@ class Program
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BookingType", inversedBy="program")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BookingType", inversedBy="program")
      * @ORM\JoinColumn(name="booking_type_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $bookingType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Field", inversedBy="program")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="program")
      * @ORM\JoinColumn(name="field_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotBlank(message="Please provide field")
      */
     private $field;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Session", mappedBy="program")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Session", mappedBy="program")
      * @Assert\NotBlank(message="Please provide session")
      */
     private $session;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Day", mappedBy="program")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Day", mappedBy="program")
      * @Assert\NotBlank(message="Please provide day")
      */
     private $day;
@@ -75,11 +75,11 @@ class Program
     /**
      * Set bookingType
      *
-     * @param \AppBundle\Entity\BookingType $bookingType
+     * @param \App\Entity\BookingType $bookingType
      *
      * @return Program
      */
-    public function setBookingType(\AppBundle\Entity\BookingType $bookingType = null)
+    public function setBookingType(\App\Entity\BookingType $bookingType = null)
     {
         $this->bookingType = $bookingType;
 
@@ -89,7 +89,7 @@ class Program
     /**
      * Get bookingType
      *
-     * @return \AppBundle\Entity\BookingType
+     * @return \App\Entity\BookingType
      */
     public function getBookingType()
     {
@@ -99,11 +99,11 @@ class Program
     /**
      * Add session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      *
      * @return Program
      */
-    public function addSession(\AppBundle\Entity\Session $session)
+    public function addSession(\App\Entity\Session $session)
     {
         $this->session[] = $session;
 
@@ -113,9 +113,9 @@ class Program
     /**
      * Remove session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      */
-    public function removeSession(\AppBundle\Entity\Session $session)
+    public function removeSession(\App\Entity\Session $session)
     {
         $this->session->removeElement($session);
     }
@@ -133,11 +133,11 @@ class Program
     /**
      * Add day
      *
-     * @param \AppBundle\Entity\Day $day
+     * @param \App\Entity\Day $day
      *
      * @return Program
      */
-    public function addDay(\AppBundle\Entity\Day $day)
+    public function addDay(\App\Entity\Day $day)
     {
         $this->day[] = $day;
 
@@ -147,9 +147,9 @@ class Program
     /**
      * Remove day
      *
-     * @param \AppBundle\Entity\Day $day
+     * @param \App\Entity\Day $day
      */
-    public function removeDay(\AppBundle\Entity\Day $day)
+    public function removeDay(\App\Entity\Day $day)
     {
         $this->day->removeElement($day);
     }
@@ -167,11 +167,11 @@ class Program
     /**
      * Set field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      *
      * @return Program
      */
-    public function setField(\AppBundle\Entity\Field $field = null)
+    public function setField(\App\Entity\Field $field = null)
     {
         $this->field = $field;
 
@@ -181,7 +181,7 @@ class Program
     /**
      * Get field
      *
-     * @return \AppBundle\Entity\Field
+     * @return \App\Entity\Field
      */
     public function getField()
     {

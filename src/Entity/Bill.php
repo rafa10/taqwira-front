@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -29,13 +29,13 @@ class Bill
     private $created;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="bill")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="bill")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $center;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="bill")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="bill")
      */
     private $booking;
 
@@ -118,11 +118,11 @@ class Bill
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Bill
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -132,7 +132,7 @@ class Bill
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {
@@ -142,11 +142,11 @@ class Bill
     /**
      * Add booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      *
      * @return Bill
      */
-    public function addBooking(\AppBundle\Entity\Booking $booking)
+    public function addBooking(\App\Entity\Booking $booking)
     {
         $this->booking[] = $booking;
 
@@ -156,9 +156,9 @@ class Bill
     /**
      * Remove booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      */
-    public function removeBooking(\AppBundle\Entity\Booking $booking)
+    public function removeBooking(\App\Entity\Booking $booking)
     {
         $this->booking->removeElement($booking);
     }

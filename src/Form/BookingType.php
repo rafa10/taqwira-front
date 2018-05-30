@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace App\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -53,7 +53,7 @@ class BookingType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Booking',
+            'data_class' => 'App\Entity\Booking',
             'attr' => array('readonly' => true)
         ));
     }

@@ -1,12 +1,11 @@
 <?php
 
-namespace  App\Services;
+namespace  App\Service;
 
 use App\Entity\Booking;
 use App\Entity\Customer;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-
 
 class Mailer
 {
@@ -35,7 +34,7 @@ class Mailer
      */
     public function sendMessage($to, $subject, $body)
     {
-        $message = \Swift_Message::newInstance()
+        $message = (new \Swift_Message())
             ->setFrom($this->from)
             ->setTo($to)
             ->setSubject($subject)
@@ -53,7 +52,7 @@ class Mailer
     public function sendConfirmationAccountMessage(User $user)
     {
         $subject = "Votre compte stadier a été crée";
-        $template = "mail/confirmation.html.twig";
+        $template = "Mail/confirmation.html.twig";
         $to = $user->getEmail();
         $body = $this->templating->render($template, array('user' => $user));
         $this->sendMessage($to, $subject, $body);
@@ -79,7 +78,6 @@ class Mailer
      */
     public function sendBookingSubscriptionMessage($basket, Customer $customer)
     {
-
         $subject = "Confirmation de votre réservation abonnement";
         $template = "Mail/booking_subscription_mail.html.twig";
         $to = $customer->getEmail();

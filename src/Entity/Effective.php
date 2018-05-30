@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -135,7 +135,7 @@ class Effective
     // ..........
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="effective")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="effective")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $center;
@@ -498,11 +498,11 @@ class Effective
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Effective
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -512,7 +512,7 @@ class Effective
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {

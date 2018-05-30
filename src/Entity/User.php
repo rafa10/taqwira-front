@@ -1,15 +1,14 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User extends BaseUser
+class User
 {
     /**
      * @ORM\Id
@@ -33,7 +32,12 @@ class User extends BaseUser
     private $lastname;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="user", cascade={"persist"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="user", cascade={"persist"})
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      *
      */
@@ -96,13 +100,37 @@ class User extends BaseUser
     }
 
     /**
-     * Set center
+     * Set email
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param string $email
      *
      * @return User
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set center
+     *
+     * @param \App\Entity\Center $center
+     *
+     * @return User
+     */
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -112,7 +140,7 @@ class User extends BaseUser
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {

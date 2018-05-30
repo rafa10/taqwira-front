@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -25,7 +25,7 @@ class Video
     private $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Booking", inversedBy="video")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Booking", inversedBy="video")
      * @ORM\JoinColumn(name="booking_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotBlank(message="Please provide an booking")
      */
@@ -77,11 +77,11 @@ class Video
     /**
      * Set booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      *
      * @return Video
      */
-    public function setBooking(\AppBundle\Entity\Booking $booking = null)
+    public function setBooking(\App\Entity\Booking $booking = null)
     {
         $this->booking = $booking;
 
@@ -91,7 +91,7 @@ class Video
     /**
      * Get booking
      *
-     * @return \AppBundle\Entity\Booking
+     * @return \App\Entity\Booking
      */
     public function getBooking()
     {

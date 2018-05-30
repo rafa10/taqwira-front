@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Entity;
+namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,7 +20,7 @@ class AuditSecurity
     private $created_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="auditSecurity")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="auditSecurity")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $user;
@@ -62,11 +62,11 @@ class AuditSecurity
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \App\Entity\User $user
      *
      * @return AuditSecurity
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(\App\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -76,7 +76,7 @@ class AuditSecurity
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return \App\Entity\User
      */
     public function getUser()
     {

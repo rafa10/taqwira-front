@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -59,12 +59,12 @@ class Customer
     private $phone;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="customer")
      */
     private $booking;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="customer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="customer")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $center;
@@ -220,11 +220,11 @@ class Customer
     /**
      * Add booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      *
      * @return Customer
      */
-    public function addBooking(\AppBundle\Entity\Booking $booking)
+    public function addBooking(\App\Entity\Booking $booking)
     {
         $this->booking[] = $booking;
 
@@ -234,9 +234,9 @@ class Customer
     /**
      * Remove booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      */
-    public function removeBooking(\AppBundle\Entity\Booking $booking)
+    public function removeBooking(\App\Entity\Booking $booking)
     {
         $this->booking->removeElement($booking);
     }
@@ -254,11 +254,11 @@ class Customer
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Customer
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -268,7 +268,7 @@ class Customer
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {

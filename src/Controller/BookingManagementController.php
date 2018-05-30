@@ -1,8 +1,8 @@
 <?php
 
-namespace FrontBundle\Controller;
+namespace App\Controller;
 
-use AppBundle\Entity\Booking;
+use App\Entity\Booking;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -47,8 +47,8 @@ class BookingManagementController extends Controller
             $email = isset($data['form']['email']) ? $data['form']['email'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
 
-            $customer = $em->getRepository('AppBundle:Customer')->findOneBy(array('email' => $email));
-            $booking= $em->getRepository('AppBundle:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
 
             if ($booking != null){
                 // Create session booking
@@ -81,8 +81,8 @@ class BookingManagementController extends Controller
             $lastname = isset($data['form']['lastname']) ? $data['form']['lastname'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
 
-            $customer = $em->getRepository('AppBundle:Customer')->findOneBy(array('firstname' => $firstname, 'lastname' => $lastname));
-            $booking= $em->getRepository('AppBundle:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('firstname' => $firstname, 'lastname' => $lastname));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
 
             if ($booking != null){
                 // Create session booking
@@ -104,7 +104,7 @@ class BookingManagementController extends Controller
 
         }
 
-        return $this->render('FrontBundle:Booking_management:login_booking.html.twig', array(
+        return $this->render('Booking_management/login_booking.html.twig', array(
             'form_mail' => $form_mail->createView(),
             'form_name' => $form_name->createView()
         ));
@@ -123,8 +123,8 @@ class BookingManagementController extends Controller
         $session = $request->getSession();
         if($session->has('booking')) {
             if ($session->get('booking')->getReference() == $reference){
-                $booking= $em->getRepository('AppBundle:Booking')->findOneBy(array('reference' => $reference));
-                return $this->render('FrontBundle:Booking_management:booking.html.twig', array('booking' => $booking));
+                $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
+                return $this->render('Booking_management/booking.html.twig', array('booking' => $booking));
 
             } else {
                 return $this->redirectToRoute('booking_login');
@@ -146,7 +146,7 @@ class BookingManagementController extends Controller
     public function receiptAction(Booking $booking)
     {
 
-        $html = $this->renderView('FrontBundle:Booking_management:receipt.html.twig', array(
+        $html = $this->renderView('Booking_management/receipt.html.twig', array(
             'booking' => $booking
         ));
 

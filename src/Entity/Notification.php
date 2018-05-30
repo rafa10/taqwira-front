@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping AS ORM;
@@ -44,7 +44,7 @@ class Notification
     private $link;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="event")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="event")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $center;
@@ -185,11 +185,11 @@ class Notification
     /**
      * Set center.
      *
-     * @param \AppBundle\Entity\Center|null $center
+     * @param \App\Entity\Center|null $center
      *
      * @return Notification
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -199,7 +199,7 @@ class Notification
     /**
      * Get center.
      *
-     * @return \AppBundle\Entity\Center|null
+     * @return \App\Entity\Center|null
      */
     public function getCenter()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -25,27 +25,27 @@ class Price
     private $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BookingType", inversedBy="price")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BookingType", inversedBy="price")
      * @ORM\JoinColumn(name="booking_type_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotBlank(message="Please provide booking type")
      */
     private $bookingType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Field", inversedBy="price")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="price")
      * @ORM\JoinColumn(name="field_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotBlank(message="Please provide field")
      */
     private $field;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Session", mappedBy="price")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Session", mappedBy="price")
      * @Assert\NotBlank(message="Please provide session")
      */
     private $session;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Day", mappedBy="price")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Day", mappedBy="price")
      * @Assert\NotBlank(message="Please provide day")
      */
     private $day;
@@ -105,11 +105,11 @@ class Price
     /**
      * Set bookingType
      *
-     * @param \AppBundle\Entity\BookingType $bookingType
+     * @param \App\Entity\BookingType $bookingType
      *
      * @return Price
      */
-    public function setBookingType(\AppBundle\Entity\BookingType $bookingType = null)
+    public function setBookingType(\App\Entity\BookingType $bookingType = null)
     {
         $this->bookingType = $bookingType;
 
@@ -119,7 +119,7 @@ class Price
     /**
      * Get bookingType
      *
-     * @return \AppBundle\Entity\BookingType
+     * @return \App\Entity\BookingType
      */
     public function getBookingType()
     {
@@ -129,11 +129,11 @@ class Price
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Price
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -143,7 +143,7 @@ class Price
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {
@@ -153,11 +153,11 @@ class Price
     /**
      * Add session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      *
      * @return Price
      */
-    public function addSession(\AppBundle\Entity\Session $session)
+    public function addSession(\App\Entity\Session $session)
     {
         $this->session[] = $session;
 
@@ -167,9 +167,9 @@ class Price
     /**
      * Remove session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      */
-    public function removeSession(\AppBundle\Entity\Session $session)
+    public function removeSession(\App\Entity\Session $session)
     {
         $this->session->removeElement($session);
     }
@@ -187,11 +187,11 @@ class Price
     /**
      * Add day
      *
-     * @param \AppBundle\Entity\Day $day
+     * @param \App\Entity\Day $day
      *
      * @return Price
      */
-    public function addDay(\AppBundle\Entity\Day $day)
+    public function addDay(\App\Entity\Day $day)
     {
         $this->day[] = $day;
 
@@ -201,9 +201,9 @@ class Price
     /**
      * Remove day
      *
-     * @param \AppBundle\Entity\Day $day
+     * @param \App\Entity\Day $day
      */
-    public function removeDay(\AppBundle\Entity\Day $day)
+    public function removeDay(\App\Entity\Day $day)
     {
         $this->day->removeElement($day);
     }
@@ -221,11 +221,11 @@ class Price
     /**
      * Set field.
      *
-     * @param \AppBundle\Entity\Field|null $field
+     * @param \App\Entity\Field|null $field
      *
      * @return Price
      */
-    public function setField(\AppBundle\Entity\Field $field = null)
+    public function setField(\App\Entity\Field $field = null)
     {
         $this->field = $field;
 
@@ -235,7 +235,7 @@ class Price
     /**
      * Get field.
      *
-     * @return \AppBundle\Entity\Field|null
+     * @return \App\Entity\Field|null
      */
     public function getField()
     {

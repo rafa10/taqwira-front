@@ -1,8 +1,8 @@
 <?php
 
-namespace FrontBundle\Controller;
+namespace App\Controller;
 
-use AppBundle\Entity\Booking;
+use App\Entity\Booking;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -45,8 +45,8 @@ class VideoManagementController extends Controller
             $email = isset($data['form']['email']) ? $data['form']['email'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
 
-            $customer = $em->getRepository('AppBundle:Customer')->findOneBy(array('email' => $email));
-            $booking= $em->getRepository('AppBundle:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
 
             if ($booking != null){
                 // Create session video
@@ -69,7 +69,7 @@ class VideoManagementController extends Controller
 
         }
 
-        return $this->render('FrontBundle:video_management:login_video.html.twig', array(
+        return $this->render('video_management/login_video.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -87,9 +87,9 @@ class VideoManagementController extends Controller
         $session = $request->getSession();
         if($session->has('video')) {
             if ($session->get('video')->getReference() == $reference){
-                $booking= $em->getRepository('AppBundle:Booking')->findOneBy(array('reference' => $reference));
-                $video= $em->getRepository('AppBundle:Video')->findOneBy(array('booking' => $booking ));
-                return $this->render('FrontBundle:video_management:video.html.twig', array(
+                $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
+                $video= $em->getRepository('App:Video')->findOneBy(array('booking' => $booking ));
+                return $this->render('video_management/video.html.twig', array(
                     'booking' => $booking,
                     'video'   => $video
                     ));

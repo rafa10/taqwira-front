@@ -1,16 +1,14 @@
 <?php
 
-namespace FrontBundle\Controller;
+namespace App\Controller;
 
-use AppBundle\Entity\Contact;
-use AppBundle\Entity\Notification;
-use AppBundle\Form\ContactType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Contact;
+use App\Entity\Notification;
+use App\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -26,7 +24,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('FrontBundle:Default:index.html.twig', array(
+        return $this->render('Default/index.html.twig', array(
         ));
     }
 
@@ -61,7 +59,7 @@ class DefaultController extends Controller
 
         }
 
-        return $this->render('FrontBundle:Default:contact_us.html.twig', array(
+        return $this->render('Default/contact_us.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -90,7 +88,7 @@ class DefaultController extends Controller
         $payload=array();
         $payload['status']='ok';
         $payload['page']='show';
-        $payload['html'] = $this->renderView('FrontBundle:Default:form_city.html.twig', [
+        $payload['html'] = $this->renderView('Default/form_city.html.twig', [
             'city' => $city,
         ]);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -46,31 +46,31 @@ class Booking
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Field", inversedBy="booking")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="booking")
      * @ORM\JoinColumn(name="field_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $field;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BookingType", inversedBy="booking")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BookingType", inversedBy="booking")
      * @ORM\JoinColumn(name="booking_type_id", referencedColumnName="id")
      */
     private $bookingType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Customer", inversedBy="booking", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer", inversedBy="booking", cascade={"persist"})
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Bill", inversedBy="booking")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bill", inversedBy="booking")
      * @ORM\JoinColumn(name="bill_id", referencedColumnName="id")
      */
     private $bill;
 
     /**
-    * @ORM\OneToMany(targetEntity="AppBundle\Entity\Video", mappedBy="booking")
+    * @ORM\OneToMany(targetEntity="App\Entity\Video", mappedBy="booking")
     */
     private $video;
 
@@ -132,11 +132,11 @@ class Booking
     /**
      * Set bookingType
      *
-     * @param \AppBundle\Entity\BookingType $bookingType
+     * @param \App\Entity\BookingType $bookingType
      *
      * @return Booking
      */
-    public function setBookingType(\AppBundle\Entity\BookingType $bookingType = null)
+    public function setBookingType(\App\Entity\BookingType $bookingType = null)
     {
         $this->bookingType = $bookingType;
 
@@ -146,7 +146,7 @@ class Booking
     /**
      * Get bookingType
      *
-     * @return \AppBundle\Entity\BookingType
+     * @return \App\Entity\BookingType
      */
     public function getBookingType()
     {
@@ -180,11 +180,11 @@ class Booking
     /**
      * Set field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      *
      * @return Booking
      */
-    public function setField(\AppBundle\Entity\Field $field = null)
+    public function setField(\App\Entity\Field $field = null)
     {
         $this->field = $field;
 
@@ -194,7 +194,7 @@ class Booking
     /**
      * Get field
      *
-     * @return \AppBundle\Entity\Field
+     * @return \App\Entity\Field
      */
     public function getField()
     {
@@ -252,11 +252,11 @@ class Booking
     /**
      * Set customer
      *
-     * @param \AppBundle\Entity\Customer $customer
+     * @param \App\Entity\Customer $customer
      *
      * @return Booking
      */
-    public function setCustomer(\AppBundle\Entity\Customer $customer = null)
+    public function setCustomer(\App\Entity\Customer $customer = null)
     {
         $this->customer = $customer;
 
@@ -266,7 +266,7 @@ class Booking
     /**
      * Get customer
      *
-     * @return \AppBundle\Entity\Customer
+     * @return \App\Entity\Customer
      */
     public function getCustomer()
     {
@@ -300,11 +300,11 @@ class Booking
     /**
      * Add video
      *
-     * @param \AppBundle\Entity\Video $video
+     * @param \App\Entity\Video $video
      *
      * @return Booking
      */
-    public function addVideo(\AppBundle\Entity\Video $video)
+    public function addVideo(\App\Entity\Video $video)
     {
         $this->video[] = $video;
 
@@ -314,9 +314,9 @@ class Booking
     /**
      * Remove video
      *
-     * @param \AppBundle\Entity\Video $video
+     * @param \App\Entity\Video $video
      */
-    public function removeVideo(\AppBundle\Entity\Video $video)
+    public function removeVideo(\App\Entity\Video $video)
     {
         $this->video->removeElement($video);
     }
@@ -334,11 +334,11 @@ class Booking
     /**
      * Set bill
      *
-     * @param \AppBundle\Entity\bill $bill
+     * @param \App\Entity\bill $bill
      *
      * @return Booking
      */
-    public function setBill(\AppBundle\Entity\bill $bill = null)
+    public function setBill(\App\Entity\bill $bill = null)
     {
         $this->bill = $bill;
 
@@ -348,7 +348,7 @@ class Booking
     /**
      * Get bill
      *
-     * @return \AppBundle\Entity\bill
+     * @return \App\Entity\bill
      */
     public function getBill()
     {

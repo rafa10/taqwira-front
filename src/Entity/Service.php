@@ -1,10 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -32,13 +31,12 @@ class Service
     // ..........
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Center", inversedBy="service")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Center", inversedBy="service")
      * @ORM\JoinTable(
      *     name="center_service",
      *     joinColumns={@ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="center_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")}
      * )
-     * @MaxDepth(0)
      */
     private $center;
 
@@ -95,11 +93,11 @@ class Service
     /**
      * Add center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Service
      */
-    public function addCenter(\AppBundle\Entity\Center $center)
+    public function addCenter(\App\Entity\Center $center)
     {
         $this->center[] = $center;
 
@@ -109,9 +107,9 @@ class Service
     /**
      * Remove center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      */
-    public function removeCenter(\AppBundle\Entity\Center $center)
+    public function removeCenter(\App\Entity\Center $center)
     {
         $this->center->removeElement($center);
     }

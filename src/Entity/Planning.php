@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -42,7 +42,7 @@ class Planning
     private $nb_session;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Field", inversedBy="planning")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="planning")
      * @ORM\JoinColumn(name="field_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotBlank(message="Please provide field")
      */
@@ -152,11 +152,11 @@ class Planning
     /**
      * Set field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      *
      * @return Planning
      */
-    public function setField(\AppBundle\Entity\Field $field = null)
+    public function setField(\App\Entity\Field $field = null)
     {
         $this->field = $field;
 
@@ -166,7 +166,7 @@ class Planning
     /**
      * Get field
      *
-     * @return \AppBundle\Entity\Field
+     * @return \App\Entity\Field
      */
     public function getField()
     {

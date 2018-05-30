@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping AS ORM;
@@ -28,12 +28,12 @@ class Region
     // ..........
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Center", mappedBy="region")
+     * @ORM\OneToMany(targetEntity="App\Entity\Center", mappedBy="region")
      */
     private $center;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\City", mappedBy="region")
+     * @ORM\OneToMany(targetEntity="App\Entity\City", mappedBy="region")
      */
     private $city;
 
@@ -91,11 +91,11 @@ class Region
     /**
      * Add city
      *
-     * @param \AppBundle\Entity\City $city
+     * @param \App\Entity\City $city
      *
      * @return Region
      */
-    public function addCity(\AppBundle\Entity\City $city)
+    public function addCity(\App\Entity\City $city)
     {
         $this->city[] = $city;
 
@@ -105,9 +105,9 @@ class Region
     /**
      * Remove city
      *
-     * @param \AppBundle\Entity\City $city
+     * @param \App\Entity\City $city
      */
-    public function removeCity(\AppBundle\Entity\City $city)
+    public function removeCity(\App\Entity\City $city)
     {
         $this->city->removeElement($city);
     }
@@ -125,11 +125,11 @@ class Region
     /**
      * Add center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Region
      */
-    public function addCenter(\AppBundle\Entity\Center $center)
+    public function addCenter(\App\Entity\Center $center)
     {
         $this->center[] = $center;
 
@@ -139,9 +139,9 @@ class Region
     /**
      * Remove center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      */
-    public function removeCenter(\AppBundle\Entity\Center $center)
+    public function removeCenter(\App\Entity\Center $center)
     {
         $this->center->removeElement($center);
     }

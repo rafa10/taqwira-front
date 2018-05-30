@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,20 +19,20 @@ class ConfigSection
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Config", mappedBy="configSection")
+     * @ORM\OneToMany(targetEntity="App\Entity\Config", mappedBy="configSection")
      * @Assert\NotBlank(message="Please provide a config")
      */
     private $config;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="configSection")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="configSection")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotBlank(message="Please provide a center")
      */
     private $center;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Section", inversedBy="configSection")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Section", inversedBy="configSection")
      * @ORM\JoinColumn(name="section_id", referencedColumnName="id")
      */
     private $section;
@@ -58,11 +58,11 @@ class ConfigSection
     /**
      * Add config
      *
-     * @param \AppBundle\Entity\Config $config
+     * @param \App\Entity\Config $config
      *
      * @return ConfigSection
      */
-    public function addConfig(\AppBundle\Entity\Config $config)
+    public function addConfig(\App\Entity\Config $config)
     {
         $this->config[] = $config;
 
@@ -72,9 +72,9 @@ class ConfigSection
     /**
      * Remove config
      *
-     * @param \AppBundle\Entity\Config $config
+     * @param \App\Entity\Config $config
      */
-    public function removeConfig(\AppBundle\Entity\Config $config)
+    public function removeConfig(\App\Entity\Config $config)
     {
         $this->config->removeElement($config);
     }
@@ -92,11 +92,11 @@ class ConfigSection
     /**
      * Set section
      *
-     * @param \AppBundle\Entity\Section $section
+     * @param \App\Entity\Section $section
      *
      * @return ConfigSection
      */
-    public function setSection(\AppBundle\Entity\Section $section = null)
+    public function setSection(\App\Entity\Section $section = null)
     {
         $this->section = $section;
 
@@ -106,7 +106,7 @@ class ConfigSection
     /**
      * Get section
      *
-     * @return \AppBundle\Entity\Section
+     * @return \App\Entity\Section
      */
     public function getSection()
     {
@@ -116,11 +116,11 @@ class ConfigSection
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return ConfigSection
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -130,7 +130,7 @@ class ConfigSection
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {

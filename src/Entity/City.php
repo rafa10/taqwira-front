@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -27,13 +27,13 @@ class City
     // ..........
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Region", inversedBy="city")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Region", inversedBy="city")
      * @ORM\JoinColumn(name="region_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $region;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Center", mappedBy="city")
+     * @ORM\OneToMany(targetEntity="App\Entity\Center", mappedBy="city")
      */
     private $center;
 
@@ -90,11 +90,11 @@ class City
     /**
      * Set region
      *
-     * @param \AppBundle\Entity\Region $region
+     * @param \App\Entity\Region $region
      *
      * @return City
      */
-    public function setRegion(\AppBundle\Entity\Region $region = null)
+    public function setRegion(\App\Entity\Region $region = null)
     {
         $this->region = $region;
 
@@ -104,7 +104,7 @@ class City
     /**
      * Get region
      *
-     * @return \AppBundle\Entity\Region
+     * @return \App\Entity\Region
      */
     public function getRegion()
     {
@@ -114,11 +114,11 @@ class City
     /**
      * Add center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return City
      */
-    public function addCenter(\AppBundle\Entity\Center $center)
+    public function addCenter(\App\Entity\Center $center)
     {
         $this->center[] = $center;
 
@@ -128,9 +128,9 @@ class City
     /**
      * Remove center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      */
-    public function removeCenter(\AppBundle\Entity\Center $center)
+    public function removeCenter(\App\Entity\Center $center)
     {
         $this->center->removeElement($center);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping AS ORM;
@@ -28,17 +28,17 @@ class BookingType
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="bookingType")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="bookingType")
      */
     private $booking;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Price", mappedBy="bookingType")
+     * @ORM\OneToMany(targetEntity="App\Entity\Price", mappedBy="bookingType")
      */
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Program", mappedBy="bookingType")
+     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="bookingType")
      */
     private $program;
 
@@ -99,11 +99,11 @@ class BookingType
     /**
      * Add booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      *
      * @return BookingType
      */
-    public function addBooking(\AppBundle\Entity\Booking $booking)
+    public function addBooking(\App\Entity\Booking $booking)
     {
         $this->booking[] = $booking;
 
@@ -113,9 +113,9 @@ class BookingType
     /**
      * Remove booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      */
-    public function removeBooking(\AppBundle\Entity\Booking $booking)
+    public function removeBooking(\App\Entity\Booking $booking)
     {
         $this->booking->removeElement($booking);
     }
@@ -133,11 +133,11 @@ class BookingType
     /**
      * Add price
      *
-     * @param \AppBundle\Entity\Price $price
+     * @param \App\Entity\Price $price
      *
      * @return BookingType
      */
-    public function addPrice(\AppBundle\Entity\Price $price)
+    public function addPrice(\App\Entity\Price $price)
     {
         $this->price[] = $price;
 
@@ -147,9 +147,9 @@ class BookingType
     /**
      * Remove price
      *
-     * @param \AppBundle\Entity\Price $price
+     * @param \App\Entity\Price $price
      */
-    public function removePrice(\AppBundle\Entity\Price $price)
+    public function removePrice(\App\Entity\Price $price)
     {
         $this->price->removeElement($price);
     }
@@ -168,11 +168,11 @@ class BookingType
     /**
      * Add program
      *
-     * @param \AppBundle\Entity\Program $program
+     * @param \App\Entity\Program $program
      *
      * @return BookingType
      */
-    public function addProgram(\AppBundle\Entity\Program $program)
+    public function addProgram(\App\Entity\Program $program)
     {
         $this->program[] = $program;
 
@@ -182,9 +182,9 @@ class BookingType
     /**
      * Remove program
      *
-     * @param \AppBundle\Entity\Program $program
+     * @param \App\Entity\Program $program
      */
-    public function removeProgram(\AppBundle\Entity\Program $program)
+    public function removeProgram(\App\Entity\Program $program)
     {
         $this->program->removeElement($program);
     }

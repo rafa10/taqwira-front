@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping AS ORM;
@@ -38,35 +38,35 @@ class Field
     private $capacity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="field")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="field")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      *
      */
     private $center;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Session", mappedBy="field")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Session", mappedBy="field")
      * @Assert\NotBlank(message="Please provide an field session")
      */
     private $session;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Planning", mappedBy="field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Planning", mappedBy="field")
      */
     private $planning;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="field")
      */
     private $booking;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Price", mappedBy="field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Price", mappedBy="field")
      */
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Program", mappedBy="field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="field")
      */
     private $program;
 
@@ -176,11 +176,11 @@ class Field
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Field
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -190,7 +190,7 @@ class Field
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {
@@ -200,11 +200,11 @@ class Field
     /**
      * Add planning
      *
-     * @param \AppBundle\Entity\Planning $planning
+     * @param \App\Entity\Planning $planning
      *
      * @return Field
      */
-    public function addPlanning(\AppBundle\Entity\Planning $planning)
+    public function addPlanning(\App\Entity\Planning $planning)
     {
         $this->planning[] = $planning;
 
@@ -214,9 +214,9 @@ class Field
     /**
      * Remove planning
      *
-     * @param \AppBundle\Entity\Planning $planning
+     * @param \App\Entity\Planning $planning
      */
-    public function removePlanning(\AppBundle\Entity\Planning $planning)
+    public function removePlanning(\App\Entity\Planning $planning)
     {
         $this->planning->removeElement($planning);
     }
@@ -234,11 +234,11 @@ class Field
     /**
      * Add booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      *
      * @return Field
      */
-    public function addBooking(\AppBundle\Entity\Booking $booking)
+    public function addBooking(\App\Entity\Booking $booking)
     {
         $this->booking[] = $booking;
 
@@ -248,9 +248,9 @@ class Field
     /**
      * Remove booking
      *
-     * @param \AppBundle\Entity\Booking $booking
+     * @param \App\Entity\Booking $booking
      */
-    public function removeBooking(\AppBundle\Entity\Booking $booking)
+    public function removeBooking(\App\Entity\Booking $booking)
     {
         $this->booking->removeElement($booking);
     }
@@ -269,11 +269,11 @@ class Field
     /**
      * Add session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      *
      * @return Field
      */
-    public function addSession(\AppBundle\Entity\Session $session)
+    public function addSession(\App\Entity\Session $session)
     {
         $this->session[] = $session;
 
@@ -283,9 +283,9 @@ class Field
     /**
      * Remove session
      *
-     * @param \AppBundle\Entity\Session $session
+     * @param \App\Entity\Session $session
      */
-    public function removeSession(\AppBundle\Entity\Session $session)
+    public function removeSession(\App\Entity\Session $session)
     {
         $this->session->removeElement($session);
     }
@@ -303,11 +303,11 @@ class Field
     /**
      * Add program
      *
-     * @param \AppBundle\Entity\Program $program
+     * @param \App\Entity\Program $program
      *
      * @return Field
      */
-    public function addProgram(\AppBundle\Entity\Program $program)
+    public function addProgram(\App\Entity\Program $program)
     {
         $this->program[] = $program;
 
@@ -317,9 +317,9 @@ class Field
     /**
      * Remove program
      *
-     * @param \AppBundle\Entity\Program $program
+     * @param \App\Entity\Program $program
      */
-    public function removeProgram(\AppBundle\Entity\Program $program)
+    public function removeProgram(\App\Entity\Program $program)
     {
         $this->program->removeElement($program);
     }
@@ -337,11 +337,11 @@ class Field
     /**
      * Add price.
      *
-     * @param \AppBundle\Entity\Price $price
+     * @param \App\Entity\Price $price
      *
      * @return Field
      */
-    public function addPrice(\AppBundle\Entity\Price $price)
+    public function addPrice(\App\Entity\Price $price)
     {
         $this->price[] = $price;
 
@@ -351,11 +351,11 @@ class Field
     /**
      * Remove price.
      *
-     * @param \AppBundle\Entity\Price $price
+     * @param \App\Entity\Price $price
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removePrice(\AppBundle\Entity\Price $price)
+    public function removePrice(\App\Entity\Price $price)
     {
         return $this->price->removeElement($price);
     }

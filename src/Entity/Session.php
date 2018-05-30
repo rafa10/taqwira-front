@@ -1,11 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use JMS\Serializer\Annotation as JMS;
-use JMS\Serializer\Annotation\MaxDepth;
 
 /**
  * @ORM\Entity
@@ -21,55 +19,50 @@ class Session
     private $id;
 
     /**
-     * @JMS\Type("DateTime<'H:i'>")
      * @ORM\Column(type="time", nullable=true)
      * @Assert\NotBlank(message="Please provide an session duration")
      */
     private $time_start;
 
     /**
-     * @JMS\Type("DateTime<'H:i'>")
      * @ORM\Column(type="time", nullable=true)
      * @Assert\NotBlank(message="Please provide an session duration")
      */
     private $time_end;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Center", inversedBy="session")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Center", inversedBy="session")
      * @ORM\JoinColumn(name="center_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $center;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Field", inversedBy="session")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Field", inversedBy="session")
      * @ORM\JoinTable(
      *     name="field_session",
      *     joinColumns={@ORM\JoinColumn(name="session_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="field_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")}
      * )
-     * @MaxDepth(0)
      */
     private $field;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Price", inversedBy="session")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Price", inversedBy="session")
      * @ORM\JoinTable(
      *     name="price_session",
      *     joinColumns={@ORM\JoinColumn(name="session_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="price_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")}
      * )
-     * @MaxDepth(0)
      */
     private $price;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Program", inversedBy="session")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Program", inversedBy="session")
      * @ORM\JoinTable(
      *     name="program_session",
      *     joinColumns={@ORM\JoinColumn(name="session_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="program_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")}
      * )
-     * @MaxDepth(0)
      */
     private $program;
 
@@ -154,11 +147,11 @@ class Session
     /**
      * Add field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      *
      * @return Session
      */
-    public function addField(\AppBundle\Entity\Field $field)
+    public function addField(\App\Entity\Field $field)
     {
         $this->field[] = $field;
 
@@ -168,9 +161,9 @@ class Session
     /**
      * Remove field
      *
-     * @param \AppBundle\Entity\Field $field
+     * @param \App\Entity\Field $field
      */
-    public function removeField(\AppBundle\Entity\Field $field)
+    public function removeField(\App\Entity\Field $field)
     {
         $this->field->removeElement($field);
     }
@@ -188,11 +181,11 @@ class Session
     /**
      * Set center
      *
-     * @param \AppBundle\Entity\Center $center
+     * @param \App\Entity\Center $center
      *
      * @return Session
      */
-    public function setCenter(\AppBundle\Entity\Center $center = null)
+    public function setCenter(\App\Entity\Center $center = null)
     {
         $this->center = $center;
 
@@ -202,7 +195,7 @@ class Session
     /**
      * Get center
      *
-     * @return \AppBundle\Entity\Center
+     * @return \App\Entity\Center
      */
     public function getCenter()
     {
@@ -212,11 +205,11 @@ class Session
     /**
      * Add price
      *
-     * @param \AppBundle\Entity\Price $price
+     * @param \App\Entity\Price $price
      *
      * @return Session
      */
-    public function addPrice(\AppBundle\Entity\Price $price)
+    public function addPrice(\App\Entity\Price $price)
     {
         $this->price[] = $price;
 
@@ -226,9 +219,9 @@ class Session
     /**
      * Remove price
      *
-     * @param \AppBundle\Entity\Price $price
+     * @param \App\Entity\Price $price
      */
-    public function removePrice(\AppBundle\Entity\Price $price)
+    public function removePrice(\App\Entity\Price $price)
     {
         $this->price->removeElement($price);
     }
@@ -247,11 +240,11 @@ class Session
     /**
      * Add program
      *
-     * @param \AppBundle\Entity\Program $program
+     * @param \App\Entity\Program $program
      *
      * @return Session
      */
-    public function addProgram(\AppBundle\Entity\Program $program)
+    public function addProgram(\App\Entity\Program $program)
     {
         $this->program[] = $program;
 
@@ -261,9 +254,9 @@ class Session
     /**
      * Remove program
      *
-     * @param \AppBundle\Entity\Program $program
+     * @param \App\Entity\Program $program
      */
-    public function removeProgram(\AppBundle\Entity\Program $program)
+    public function removeProgram(\App\Entity\Program $program)
     {
         $this->program->removeElement($program);
     }

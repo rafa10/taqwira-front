@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace App\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -25,13 +25,12 @@ class CustomerType extends AbstractType
                     'Mme/Mlle' => 'Mme/Mlle'
                 ),
                 'required'    => true,
-                'placeholder' => 'Sexe',
                 'empty_data'  => null
             ))
             ->add('email')
             ->add('phone')
             ->add('center', EntityType::class, array(
-                'class' => 'AppBundle:Center',
+                'class' => 'App:Center',
                 'choice_label' => 'name',
                 'placeholder' => 'Choisissez ...',
                 'empty_data' => null
@@ -45,7 +44,7 @@ class CustomerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Customer'
+            'data_class' => 'App\Entity\Customer'
         ));
     }
 

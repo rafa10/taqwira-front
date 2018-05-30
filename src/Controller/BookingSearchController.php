@@ -1,12 +1,16 @@
 <?php
 
-namespace FrontBundle\Controller;
+namespace App\Controller;
 
-use AppBundle\Entity\Booking;
-use AppBundle\Entity\Center;
-use AppBundle\Entity\Field;
-use AppBundle\Entity\Notification;
-use AppBundle\Form\BookingType;
+use App\Entity\Booking;
+use App\Entity\Center;
+use App\Entity\Field;
+use App\Entity\Notification;
+use App\Form\BookingType;
+use App\Service\Mailer;
+use Nzo\UrlEncryptorBundle\DependencyInjection\NzoUrlEncryptorExtension;
+use Nzo\UrlEncryptorBundle\NzoUrlEncryptorBundle;
+use Nzo\UrlEncryptorBundle\UrlEncryptor\UrlEncryptor;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Form;
@@ -26,7 +30,7 @@ use Nzo\UrlEncryptorBundle\Annotations\ParamEncryptor;
  *
  * Class BookingSearchController
  * @Route("/booking")
- * @package AppBundle\Controller
+ * @package App\Controller
  */
 class BookingSearchController extends Controller
 {
@@ -37,10 +41,9 @@ class BookingSearchController extends Controller
      */
     public function searchFirstMatchAction()
     {
-
         $form = $this->formBuilderSearch();
 
-        return $this->render('FrontBundle:Booking_search:search.html.twig', array(
+        return $this->render('Booking_search/search.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -55,22 +58,22 @@ class BookingSearchController extends Controller
     public function searchMatchAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $days = $em->getRepository('AppBundle:Day')->findAll();
+        $days = $em->getRepository('App:Day')->findAll();
 
         $data = $request->request->get('form');
         $centerName = isset($data['center']) ? $data['center'] : null;
         $date = isset($data['date']) ? $data['date'] : date("Y-m-d");
         $date_search = new \DateTime($date);
 
-        $center = $em->getRepository('AppBundle:Center')->findOneBy(array('name' => $centerName));
-        $fields = $em->getRepository('AppBundle:Field')->findBy(array('center' => $center));
-        $user = $em->getRepository('AppBundle:User')->findOneBy(array('center' => $center));
-        $events = $em->getRepository('AppBundle:Event')->findBy(array('center' => $center), array('created' => 'DESC'));
+        $center = $em->getRepository('App:Center')->findOneBy(array('name' => $centerName));
+        $fields = $em->getRepository('App:Field')->findBy(array('center' => $center));
+        $user = $em->getRepository('App:User')->findOneBy(array('center' => $center));
+        $events = $em->getRepository('App:Event')->findBy(array('center' => $center), array('created' => 'DESC'));
 
         $bookingsTab = [];
         $bookings = [];
         foreach ( $fields as $field ){
-            $bookingsTab[] = $em->getRepository('AppBundle:Booking')->findBy(array('field' => $field));
+            $bookingsTab[] = $em->getRepository('App:Booking')->findBy(array('field' => $field));
         }
         foreach ( $bookingsTab as $index ){
             foreach ($index as $item){
@@ -81,7 +84,7 @@ class BookingSearchController extends Controller
         $payload=array();
         $payload['status']='ok';
         $payload['page']='search';
-        $payload['html'] = $this->renderView('FrontBundle:Booking_search:content_result.html.twig', array(
+        $payload['html'] = $this->renderView('Booking_search/content_result.html.twig', array(
             'fields' => $fields,
             'date_search' => $date_search,
             'days' => $days,
@@ -103,16 +106,16 @@ class BookingSearchController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function bookingMatchAction(Request $request, $field, $date, $timeS, $timeE, $price)
+    public function bookingMatchAction(Request $request, $field, $date, $timeS, $timeE, $price, UrlEncryptor $nzo)
     {
         $em = $this->getDoctrine()->getManager();
-        $type = $em->getRepository('AppBundle:BookingType')->findOneBy(array('description' => 'Match'));
+        $type = $em->getRepository('App:BookingType')->findOneBy(array('description' => 'Match'));
         $reference  = $this->refHash(6);
-        $fiel = $em->getRepository('AppBundle:Field')->find($field);
+        $fiel = $em->getRepository('App:Field')->find($field);
         $dateMatch = new \DateTime($date);
         $timeStart = new \DateTime($timeS);
         $timeEnd = new \DateTime($timeE);
-        $check_booking_match = $em->getRepository('AppBundle:Booking')->findBy(array('bookingType' => $type, 'date' => $dateMatch, 'timeStart' => $timeStart));
+        $check_booking_match = $em->getRepository('App:Booking')->findBy(array('bookingType' => $type, 'date' => $dateMatch, 'timeStart' => $timeStart));
         $center = $fiel->getCenter();
 
         $booking = new Booking();
@@ -124,11 +127,11 @@ class BookingSearchController extends Controller
 
         $form = $this->createForm(BookingType::class, $booking, array(
             'action' => $this->generateUrl('booking_details', array(
-                'field'=>$this->get('nzo_url_encryptor')->encrypt($field),
-                'date'=>$this->get('nzo_url_encryptor')->encrypt($date),
-                'timeS'=>$this->get('nzo_url_encryptor')->encrypt($timeS),
-                'timeE'=>$this->get('nzo_url_encryptor')->encrypt($timeE),
-                'price'=>$this->get('nzo_url_encryptor')->encrypt($price)
+                'field'=>$nzo->encrypt($field),
+                'date' =>$nzo->encrypt($date),
+                'timeS'=>$nzo->encrypt($timeS),
+                'timeE'=>$nzo->encrypt($timeE),
+                'price'=>$nzo->encrypt($price)
             ))
         ));
 
@@ -140,7 +143,7 @@ class BookingSearchController extends Controller
 
                 $data = $request->request->all();
                 $email = isset($data['booking']['customer']['email']) ? $data['booking']['customer']['email'] : null;
-                $customer = $em->getRepository('AppBundle:Customer')->findOneBy(array('email' => $email, 'center' => $center));
+                $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email, 'center' => $center));
 
                 if(!empty($customer)){
                     $booking->setCustomer($customer);
@@ -175,7 +178,7 @@ class BookingSearchController extends Controller
             return $this->redirectToRoute('booking_page');
         }
 
-        return $this->render('FrontBundle:Booking_search:booking_details.html.twig', array(
+        return $this->render('Booking_search/booking_details.html.twig', array(
             'form' => $form->createView(),
             'name' => $fiel->getName(),
             'center' => $center
@@ -198,16 +201,16 @@ class BookingSearchController extends Controller
         $centers = [];
         $em = $this->getDoctrine()->getManager();
 
-        $regionAll = $em->getRepository('AppBundle:Region')->findAll();
+        $regionAll = $em->getRepository('App:Region')->findAll();
         foreach ($regionAll as $region){
             $regions[$region->getName()] = null;
         }
-        $cityAll = $em->getRepository('AppBundle:City')->findAll();
+        $cityAll = $em->getRepository('App:City')->findAll();
         foreach ($cityAll as $city){
             $citys[$city->getName()] = null;
         }
 
-        $centerAll = $em->getRepository('AppBundle:Center')->findBy(array('share_program' => true));
+        $centerAll = $em->getRepository('App:Center')->findBy(array('share_program' => true));
         foreach ($centerAll as $center){
             $centers[$center->getName()] = null;
         }
@@ -269,12 +272,12 @@ class BookingSearchController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if (!empty($city_region)){
-            $region = $em->getRepository('AppBundle:Region')->findByName(array('city' => $city_region));
-            $city = $em->getRepository('AppBundle:City')->findByName(array('city' => $city_region));
+            $region = $em->getRepository('App:Region')->findByName(array('city' => $city_region));
+            $city = $em->getRepository('App:City')->findByName(array('city' => $city_region));
             if (!empty($region)){
-                $centers = $em->getRepository('AppBundle:Center')->findBy(array('region' => $region, 'share_program' => true ));
+                $centers = $em->getRepository('App:Center')->findBy(array('region' => $region, 'share_program' => true ));
             } else {
-                $centers = $em->getRepository('AppBundle:Center')->findBy(array('city' => $city, 'share_program' => true ));
+                $centers = $em->getRepository('App:Center')->findBy(array('city' => $city, 'share_program' => true ));
             }
         }
 
@@ -286,7 +289,7 @@ class BookingSearchController extends Controller
         $payload=array();
         $payload['status']='ok';
         $payload['page']='search';
-        $payload['html'] = $this->renderView('FrontBundle:Booking_search:center_form.html.twig', array(
+        $payload['html'] = $this->renderView('Booking_search/center_form.html.twig', array(
             'centers' => $data_center
         ));
         return new Response(json_encode($payload));
@@ -323,7 +326,7 @@ class BookingSearchController extends Controller
         $customers = [];
         $em = $this->getDoctrine()->getManager();
 
-        $customersAll = $em->getRepository('AppBundle:Customer')->findBy(array('center' => $center));
+        $customersAll = $em->getRepository('App:Customer')->findBy(array('center' => $center));
         foreach ($customersAll as $customer){
             $customers[$customer->getEmail()] = null;
         }
