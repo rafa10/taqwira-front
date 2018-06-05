@@ -49,17 +49,17 @@
                         {% for message in messages %}
                             {% if type == 'SUCCÈS' %}
                                 <div class="row">
-                                    <div id="card-alert" class="card green lighten-5 center-block col s12 m4 offset-m4">
+                                    <div id="card-alert" class="card green lighten-5 center-block col s12 m4 offset-m4 z-depth-0">
                                         <div class="card-content green-text">
-                                            <p class="center-align">{{ type }} : {{ message }}</p>
+                                            <p class="center-align"><i class="left material-icons">check_circle</i> {{ message }}</p>
                                         </div>
                                     </div>
                                 </div>
                             {% else %}
                                 <div class="row">
-                                    <div id="card-alert" class="card red lighten-5 center-block col s12 m4 offset-m4">
+                                    <div id="card-alert" class="card red lighten-5 center-block col s12 m4 offset-m4 z-depth-0">
                                         <div class="card-content red-text">
-                                            <p class="center-align">{{ type }} : {{ message }}</p>
+                                            <p class="center-align"><i class="left material-icons">error</i> {{ message }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,15 +68,15 @@
                     {% endfor %}
                 {% endif %}
                 <!--=== bloc test image content =====================================================================-->
-                <div id="map-page-content" class="col s12 m10 offset-m1 hide-on-small-only">
+                <div id="map-page-content" class="col s12 hide-on-small-only">
                     <div class="map-card">
-                        <div class="card">
-                            <div class="card-content" style="border-bottom: 1px solid #CCC">
+                        <div class="card z-depth-0 grey lighten-4">
+                            <div class="card-content">
                                 <h4 class="card-title grey-text text-darken-4"><a href="#" class="grey-text text-darken-4">Le réseau taqwira</a></h4>
                                 <p class="blog-post-content" style="font-weight: 300">Taqwira, c'est plus de 100 centre de football en Tunisie, mais c'est surtout la solution pour la réservation des terrain. Vous n'avez plus qu'à rechercher votre terrain !.</p>
                             </div>
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img src="{{ asset('images/arena.png') }}" alt="bg main">
+                            <div class="card-action">
+                                <img src="{{ asset('images/arena.png') }}" width="100%" alt="bg main">
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,7 @@
         <div class="row">
             <div class="col s12 m6 offset-m3">
                 <h1 class="flow-text grey lighten-3 z-depth-0 card-panel">GÉRER MES RÉSERVATIONS</h1>
+                <!--=== form content ================================================================================-->
                 <div id="profile-page-wall-share" class="row">
                     <div class="col s12">
                         <ul class="tabs z-depth-1">
@@ -73,34 +74,21 @@
                                 </div>
                             {{ form_end(form_name, { 'render_rest': false } ) }}
                         </div>
-                        <!-- Forget_reference -->
-                        {#<div id="forget_reference" class="tab-content col s12  grey lighten-4" style="display: block;">#}
-                            {#<div class="row mess-error-forget"></div>#}
-                            {#<div class="row">#}
-                                {#<div class="input-field col s12">#}
-                                    {#<input id="email" type="text" class="validate">#}
-                                    {#<label for="email" class="">E-mail *</label>#}
-                                {#</div>#}
-                                {#<div class="input-field col s12">#}
-                                    {#<input id="email" type="text" class="validate">#}
-                                    {#<label for="email" class="">Center *</label>#}
-                                {#</div>#}
-                                {#<div class="input-field col s12">#}
-                                    {#<input id="email" type="text" class="validate">#}
-                                    {#<label for="email" class="">Date de match *</label>#}
-                                {#</div>#}
-                                {#<div class="input-field col s12">#}
-                                    {#<input id="email" type="text" class="validate">#}
-                                    {#<label for="email" class="">Temps de match *</label>#}
-                                {#</div>#}
-                            {#</div>#}
-                            {#<div class="row">#}
-                                {#<div class="col s12 right-align">#}
-                                    {#<a class="waves-effect waves-light btn"><i class=""></i>Renvoyer la réservation</a>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
                     </div>
+                </div>
+                <!--=== Preloader content ===========================================================================-->
+                <div id="preloader-page-content" class="card-panel center-align z-depth-0 hide hide-on-small-only" style="position: absolute; top: 40%; left: 42%;">
+                    <div class="preloader-wrapper small active">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div><br>S'il vous plaît, attendez...
                 </div>
             </div>
         </div>

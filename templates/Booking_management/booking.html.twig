@@ -47,10 +47,10 @@
                         </div>
                         <div class="row">
                             <div class="col s12 right-align">
-                                <a role="button" href="{{ path('receipt_match_pdf', {'id': booking.id}) }}" class="waves-effect waves-light yellow accent-4 black-text btn"><i class="fas fa-file-pdf left"></i>Télécharger la réservation</a>
+                                <a role="button" href="{{ path('receipt_match_pdf', {'id': booking.id}) }}" target="_blank" class="waves-effect waves-light yellow accent-4 black-text btn"><i class="fas fa-file-pdf left"></i>Télécharger la réservation</a>
                                 <br><br>
                                 {% if booking.bill != null %}
-                                    <a role="button" href="{{ path('bill_match_pdf', { 'id': booking.id }) }}" class="waves-effect waves-light yellow accent-4 black-text btn"><i class="fas fa-file-pdf left"></i> Télécharger la facture</a>
+                                    <a role="button" href="{{ path('bill_match_pdf', { 'id': booking.id }) }}" target="_blank" class="waves-effect waves-light yellow accent-4 black-text btn"><i class="fas fa-file-pdf left"></i> Télécharger la facture</a>
                                 {% endif %}
                             </div>
                         </div>

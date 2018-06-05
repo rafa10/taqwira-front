@@ -145,7 +145,6 @@ class BookingManagementController extends Controller
      */
     public function receiptAction(Booking $booking)
     {
-
         $html = $this->renderView('Booking_management/receipt.html.twig', array(
             'booking' => $booking
         ));
@@ -163,7 +162,7 @@ class BookingManagementController extends Controller
 
 //        return new PdfResponse(
 //            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-//            'Réçu'.$booking->getReference().'.pdf'
+//            'REÇU-%s'.$booking->getReference().'.pdf'
 //        );
     }
 

@@ -76,7 +76,7 @@
                     <li class="{{ contLink }}"><a href="#contact">Contact</a></li>
                     <li class="{{ vidLink }}"><a href="{{ path('video_login') }}">Match en vidéo</a></li>
                     <li class="{{ bilLink }}"><a href="{{ path('booking_login') }}">Mes billets</a></li>
-                    <li class="{{ btnLink }}" style="margin-right: 0.5rem"><a class="btn waves-effect waves-light yellow accent-4 black-text" href="{#{ path('fos_user_security_login') }#}">S'identifier</a></li>
+                    <li class="{{ btnLink }}" style="margin-right: 0.5rem"><a class="btn waves-effect waves-light yellow accent-4 black-text" href="https://plateforme.taqwira.com/login">S'identifier</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     {% set vidLink = null %}{% set bilLink = null %}{% set btnLink = null %}{% set homLink = null %}{% set plaLink = 'hide' %}
@@ -138,11 +138,11 @@
         </div>
     </div>
     {% endif %}
-    <div class="footer-copyright grey darken-3">
-        <div class="container">
+    <div class="footer-copyright grey lighten-4">
+        <div class="container grey-text text-darken-1">
             © 2015 - {{ 'now'|date('Y') }} Taqwira, All rights reserved.
-            <a class="grey-text text-lighten-4 right" href="#">Mentions Légales</a>
-            <a class="grey-text text-lighten-4 right" href="#">Conditions générales d'utilisation&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+            <a class="grey-text text-darken-1 right" href="#">Mentions Légales</a>
+            <a class="grey-text text-darken-1 right" href="#">Conditions générales d'utilisation&nbsp;&nbsp;|&nbsp;&nbsp;</a>
         </div>
     </div>
 </footer>

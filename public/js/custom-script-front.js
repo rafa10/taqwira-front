@@ -56,11 +56,15 @@
                 contentType: false,
                 processData: false,
                 beforeSend: function () {
+                    $('#preloader-page-content').removeClass('hide');
+                    $('#profile-page-wall-share').addClass('hide');
                 },
                 success: function (data_json) {
                     data = $.parseJSON(data_json);
                     if (data.status == "ok") {
                         if (data.page == "error_mail") {
+                            $('#preloader-page-content').addClass('hide');
+                            $('#profile-page-wall-share').removeClass('hide');
                             $('.mess-error-mail').append('<div class="card alert-message z-depth-0 red lighten-5"><div class="card-content red-text"><p><i class="material-icons left">error</i>Impossible de trouver la réservation associée</p></div></div>');
 
                         } else {
@@ -91,11 +95,15 @@
                 contentType: false,
                 processData: false,
                 beforeSend: function () {
+                    $('#preloader-page-content').removeClass('hide');
+                    $('#profile-page-wall-share').addClass('hide');
                 },
                 success: function (data_json) {
                     data = $.parseJSON(data_json);
                     if (data.status == "ok") {
                         if (data.page == "error_name") {
+                            $('#preloader-page-content').addClass('hide');
+                            $('#profile-page-wall-share').removeClass('hide');
                             $('.mess-error-name').append('<div class="card alert-message z-depth-0 red lighten-5"><div class="card-content red-text"><p><i class="material-icons left">error</i>Impossible de trouver la réservation associée</p></div></div>');
 
                         } else {
@@ -127,11 +135,15 @@
                 contentType: false,
                 processData: false,
                 beforeSend: function () {
+                    $('#preloader-page-content').removeClass('hide');
+                    $('#profile-page-wall-share').addClass('hide');
                 },
                 success: function (data_json) {
                     data = $.parseJSON(data_json);
                     if (data.status == "ok") {
                         if (data.page == "refresh") {
+                            $('#preloader-page-content').addClass('hide');
+                            $('#profile-page-wall-share').removeClass('hide');
                             $('.mess-error-mail').append('<div class="card alert-message z-depth-0 red lighten-5"><div class="card-content red-text"><p><i class="material-icons left">error</i>Impossible de trouver la réservation associée</p></div></div>');
                         } else {
                             window.location.href = '/video/management/' + data.reference;
