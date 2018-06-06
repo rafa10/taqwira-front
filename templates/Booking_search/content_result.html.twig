@@ -174,29 +174,21 @@
         <!-- informations centre -->
         <div class="col s12 m6">
             <div class="card">
-                <div class="card-content">
-                    <span class="card-title">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                {% if center.avatar is empty %}
-                                    <i class="left medium material-icons">business</i>
-                                {% else %}
-                                    <img class="circle responsive-img" src="{{ asset('uploads/avatars/'~center.avatar) }}" alt="avatar"> <!-- notice the "circle" class -->
-                                {% endif %}
-                            </div>
-                            <div class="col s10">
-                                <span class="black-text">
-                                    {{ center.name }}
-                                </span>
-                            </div>
-                        </div>
-                    </span>
-                    <div class="divider"></div><br>
-                    <p><i class="material-icons left">view_array</i>{{ center.field|length }} Terrains</p><br>
-                    <p><i class="material-icons left">location_on</i>{{ center.address }}<br>{{ center.cp }} {{ center.city }}, {{ center.region }} </p><br>
-                    <p><i class="material-icons left">mail</i>{{ user.email }}</p><br>
-                    <p><i class="material-icons left">local_phone</i>{{ center.phone }}</p>
-                </div>
+                <ul class="collection">
+                    <li class="collection-item avatar" style="padding-top: 20px">
+                        {% if center.avatar is empty %}
+                            <i class="material-icons circle">business</i>
+                        {% else %}
+                            <img class="circle responsive-img" src="{{ asset('uploads/avatars/'~center.avatar) }}" alt="avatar"> <!-- notice the "circle" class -->
+                        {% endif %}
+                        <span class=" flow-text">{{ center.name }}</span>
+                        <p class="grey-text">football centre</p>
+                    </li>
+                    <li class="collection-item"><i class="material-icons left">view_array</i>{{ center.field|length }} Terrains</li>
+                    <li class="collection-item"><i class="material-icons left">location_on</i>{{ center.address }}, {{ center.cp }} {{ center.city }}, {{ center.region }}</li>
+                    <li class="collection-item"><i class="material-icons left">mail</i>{{ user.email }}</li>
+                    <li class="collection-item"><i class="material-icons left">local_phone</i><a href="tel:{{ center.phone }}">{{ center.phone }}</a></li>
+                </ul>
             </div>
         </div>
         <!--Infromations equipements -->
@@ -211,11 +203,11 @@
             </div>
         </div>
         <!-- map  geolocalisation-->
-        <div class="col s12 m6 hide">
-            <div class="card">
-                <div id="map" style="height: 400px"></div>
-            </div>
-        </div>
+        {#<div class="col s12 m6">#}
+            {#<div class="card">#}
+                {#<div id="map" style="height: 400px"></div>#}
+            {#</div>#}
+        {#</div>#}
         <!--/end map-->
     </div>
     <div class="row">

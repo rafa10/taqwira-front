@@ -166,7 +166,7 @@ class BookingSearchController extends Controller
                     ->add('SUCCÈS', 'La réservation a été enregistré avec succès!');
 
 
-                return $this->redirectToRoute('booking_page');
+                return $this->redirectToRoute('booking', ['reference' => $reference]);
 
             }
 

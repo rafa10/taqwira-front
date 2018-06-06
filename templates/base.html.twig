@@ -76,7 +76,7 @@
                     <li class="{{ contLink }}"><a href="#contact">Contact</a></li>
                     <li class="{{ vidLink }}"><a href="{{ path('video_login') }}">Match en vidéo</a></li>
                     <li class="{{ bilLink }}"><a href="{{ path('booking_login') }}">Mes billets</a></li>
-                    <li class="{{ btnLink }}" style="margin-right: 0.5rem"><a class="btn waves-effect waves-light yellow accent-4 black-text" href="https://plateforme.taqwira.com/login">S'identifier</a></li>
+                    <li class="{{ btnLink }}" style="margin-right: 0.5rem"><a class="btn waves-effect waves-light yellow accent-4 black-text" href="{{ path('booking_page') }}"> <i class="left material-icons">confirmation_number</i>Réserver</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     {% set vidLink = null %}{% set bilLink = null %}{% set btnLink = null %}{% set homLink = null %}{% set plaLink = 'hide' %}

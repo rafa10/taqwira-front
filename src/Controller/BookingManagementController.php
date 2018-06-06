@@ -47,10 +47,12 @@ class BookingManagementController extends Controller
             $email = isset($data['form']['email']) ? $data['form']['email'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
 
-            $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email));
-            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
+            $field = $booking->getField();
+            $center = $field->getCenter();
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('center'=>$center, 'email' => $email));
 
-            if ($booking != null){
+            if ($booking != null && $customer != null){
                 // Create session booking
                 if(!$session->has('booking')) {$session->set('booking', $booking);}
 
@@ -81,10 +83,12 @@ class BookingManagementController extends Controller
             $lastname = isset($data['form']['lastname']) ? $data['form']['lastname'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
 
-            $customer = $em->getRepository('App:Customer')->findOneBy(array('firstname' => $firstname, 'lastname' => $lastname));
-            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer ));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
+            $field = $booking->getField();
+            $center = $field->getCenter();
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('center' => $center, 'firstname' => $firstname, 'lastname' => $lastname));
 
-            if ($booking != null){
+            if ($booking != null && $customer != null){
                 // Create session booking
                 if(!$session->has('booking')) {$session->set('booking', $booking);}
 
