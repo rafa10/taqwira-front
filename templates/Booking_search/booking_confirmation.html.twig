@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Mes billets | Taqwira {% endblock title %}
+{% block title %} Réservation confirmé | Taqwira {% endblock title %}
 
 {% block body %}
 
@@ -8,9 +8,33 @@
         <div class="row">
             <div class="col s12 m8 offset-m2">
                 <div class="row">
-                    <h1 class="flow-text grey lighten-3 z-depth-0">GÉRER MA RÉSERVATIONS</h1>
+                    <!--=== Message session falsh back ==================================================================-->
+                    {% if app.request.hasPreviousSession %}
+                        {% for type, messages in app.session.flashbag.all() %}
+                            {% for message in messages %}
+                                {% if type == 'SUCCÈS' %}
+                                    <div class="row">
+                                        <div id="card-alert" class="card grey lighten-3 center-block col s12 m6 offset-m3 z-depth-0">
+                                            <div class="card-content green-text">
+                                                <p class="center-align flow-text"><i class="small material-icons">check_circle</i><br> {{ message }}</p>
+                                                <p class="center-align black-text">Nous verons de vous envoyer un email de confirmation de réservation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="row">
+                                        <div id="card-alert" class="card grey lighten-3 center-block col s12 m6 offset-m3 z-depth-0">
+                                            <div class="card-content red-text">
+                                                <p class="center-align flow-text"><i class="material-icons">error</i><br> {{ message }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="col s12 card-panel z-depth-0">
-                        <h5 class="flow-text"><i class="fas fa-ticket-alt left"></i> Ma réservation: <span class="lime-text text-darken-2">{{ booking.reference }}</span></h5>
+                        <h5 class="flow-text"><i class="fas fa-ticket-alt left"></i> Réference de réservation: <span class="lime-text text-darken-2">{{ booking.reference }}</span></h5>
                     </div>
                     {# == Coordonnées du client ======================================================================#}
                     <div class="col s12 m5 hide-on-small-only" style="padding: 0px">
@@ -50,15 +74,6 @@
                                     {#<div class="col s6 right-align">TVA </div><div class="col s6 right-align"><b>7.36 €</b></div>#}
                                     <div class="col s6 right-align"><b>Prix TTC</b> </div><div class="col s6 right-align"><b>{{ booking.price }} TND</b></div>
                                 </div>
-                                <div class="row">
-                                    <div class="col s12 right-align">
-                                        <a role="button" href="{{ path('receipt_match_pdf', {'id': booking.id}) }}" target="_blank" class="waves-effect waves-light yellow accent-4 black-text btn"><i class="fas fa-file-pdf left"></i>Télécharger la réservation</a>
-                                        <br><br>
-                                        {% if booking.bill != null %}
-                                            <a role="button" href="{{ path('bill_match_pdf', { 'id': booking.id }) }}" target="_blank" class="waves-effect waves-light yellow accent-4 black-text btn"><i class="fas fa-file-pdf left"></i> Télécharger la facture</a>
-                                        {% endif %}
-                                    </div>
-                                </div>
                             </li>
                         </ul>
                     </div>
@@ -82,9 +97,6 @@
         }
         .datetime-col{
             border-left: 1px dotted #8c8b8b;
-        }
-        .booking-row{
-            border: 1px dotted #8c8b8b;
         }
     </style>
 {% endblock body %}

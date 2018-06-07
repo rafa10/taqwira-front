@@ -164,7 +164,7 @@
                 <div class="card">
                     <div class="carousel carousel-slider">
                         {% for image in center.image %}
-                            <a class="carousel-item"><img src="{{ asset('uploads/photos/'~ image.url) }}"></a>
+                            <a class="carousel-item"><img src="https://plateforme.taqwira.com/uploads/photos/{{ image.url }}"></a>
                         {% endfor %}
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                         {% if center.avatar is empty %}
                             <i class="material-icons circle">business</i>
                         {% else %}
-                            <img class="circle responsive-img" src="{{ asset('uploads/avatars/'~center.avatar) }}" alt="avatar"> <!-- notice the "circle" class -->
+                            <img class="circle responsive-img" src="https://plateforme.taqwira.com/uploads/avatars/{{ center.avatar }}" alt="avatar"> <!-- notice the "circle" class -->
                         {% endif %}
                         <span class=" flow-text">{{ center.name }}</span>
                         <p class="grey-text">football centre</p>
@@ -227,7 +227,7 @@
                                     <span class="grey-text text-darken-1 ultra-small">{{ event.title }}  -  {{ event.created|date('d/m/Y') }}</span>
                                 </div>
                                 <div class="col s1 right-align">
-                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    <i class="material-icons">keyboard_arrow_down</i>
                                 </div>
                             </div>
                         </div>

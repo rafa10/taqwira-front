@@ -135,7 +135,7 @@ class BookingSearchController extends Controller
             ))
         ));
 
-        // vérification si la réservation est toujour disponible au non
+        // vérification si la réservation est toujour disponible ou non
         if (empty($check_booking_match) ){
 
             $form->handleRequest($request);
@@ -145,6 +145,7 @@ class BookingSearchController extends Controller
                 $email = isset($data['booking']['customer']['email']) ? $data['booking']['customer']['email'] : null;
                 $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email, 'center' => $center));
 
+                // Si le client il existe en lui associer la nouvelle réservation
                 if(!empty($customer)){
                     $booking->setCustomer($customer);
                 }
@@ -161,12 +162,11 @@ class BookingSearchController extends Controller
                 // Create notification for dashboard admin center
                 $this->container->get('app.notification')->newNotification($center, $subject=Notification::BOOKING, $link=Notification::BOOKING_LINK);
 
-                $request->getSession()
-                    ->getFlashBag()
-                    ->add('SUCCÈS', 'La réservation a été enregistré avec succès!');
 
-
-                return $this->redirectToRoute('booking', ['reference' => $reference]);
+                return $this->redirectToRoute('booking_confirmation', array(
+                    'reference' => $nzo->encrypt($reference),
+                    'field' => $nzo->encrypt($field)
+                ));
 
             }
 
@@ -183,6 +183,42 @@ class BookingSearchController extends Controller
             'name' => $fiel->getName(),
             'center' => $center
         ));
+
+    }
+
+    /**
+     * Feedback booking confirmation .
+     * @Route("/booking-confirmation/{reference}/{field}", name="booking_confirmation")
+     * @ParamDecryptor(params={"reference", "field"})
+     * @Method({"GET", "POST"})
+     * @param Request $request
+     * @param $reference
+     * @param Field $field
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function bookingConfirmationAction(Request $request, $reference,  $field)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $field = $em->getRepository(Field::class)->find($field);
+        $booking = $em->getRepository(Booking::class)->findOneBy(array('reference' => $reference, 'field'=> $field));
+
+        if ($booking != null){
+            $request->getSession()
+                ->getFlashBag()
+                ->add('SUCCÈS', 'La réservation est confirmé!');
+
+            return $this->render('Booking_search/booking_confirmation.html.twig', array(
+                'booking' => $booking,
+            ));
+
+        } else {
+            $request->getSession()
+                ->getFlashBag()
+                ->add('ERREUR', 'La réservation non disponible!');
+
+            return $this->redirectToRoute('booking_page');
+
+        }
 
     }
 
