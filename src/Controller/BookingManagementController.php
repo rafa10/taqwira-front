@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -153,7 +154,7 @@ class BookingManagementController extends Controller
             'booking' => $booking
         ));
 
-        $filename = sprintf('REÇU-%s.pdf', $booking->getReference());
+        $filename = sprintf('REÇU-%s.pdf', $booking->getId().'_'.$booking->getReference());
 
         return new Response(
             $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
@@ -164,10 +165,40 @@ class BookingManagementController extends Controller
             ]
         );
 
-//        return new PdfResponse(
-//            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-//            'REÇU-%s'.$booking->getReference().'.pdf'
-//        );
+//        return $this->render('Booking_management/receipt.html.twig', array(
+//            'booking' => $booking
+//        ));
+
+    }
+
+    /**
+     * Export a pdf bill
+     * @Route("/{id}/bill", name="bill_match_pdf")
+     * @Method("GET")
+     * @param Booking $booking
+     * @return PdfResponse
+     */
+    public function pdfAction(Booking $booking)
+    {
+        $center = $booking->getBill()->getCenter();
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->findOneBy(array('center' => $center));
+        $number = str_pad($booking->getId(), 10, "0", STR_PAD_LEFT);
+        $html =  $this->renderView('Booking_management/bill.html.twig', array(
+            'booking' => $booking,
+            'user' => $user
+        ));
+
+        return new PdfResponse(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            'FACTURE_'.$number.'.pdf'
+        );
+
+//        return $this->render('Booking_management/bill.html.twig', array(
+//            'booking' => $booking,
+//            'user' => $user
+//        ));
+
     }
 
     // =================================================================================================================

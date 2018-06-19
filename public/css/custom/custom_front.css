@@ -178,7 +178,7 @@ body {
 }
 /* == tabs style =====================================================================================================*/
 
-.tabs {
+.form-check-login .tabs {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -194,7 +194,7 @@ body {
     white-space: nowrap;
 }
 
-.tabs .tab {
+.form-check-login .tabs .tab {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -214,7 +214,7 @@ body {
     min-width: 80px;
 }
 
-.tabs .tab a {
+.form-check-login .tabs .tab a {
 
     display: block;
     width: 100%;
@@ -228,7 +228,7 @@ body {
     transition: color 0.28s ease;
 }
 
-.tabs .indicator {
+.form-check-login .tabs .indicator {
     position: absolute;
     bottom: 0;
     height: 2px;

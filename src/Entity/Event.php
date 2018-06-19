@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  * @ORM\Table(name="event")
  * @ORM\HasLifecycleCallbacks
  */
@@ -37,6 +37,11 @@ class Event
      * @Assert\NotBlank(message="Please provide an event content")
      */
     private $content;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
     /**
      * @ORM\Column(type="boolean", length=1, nullable=true)
@@ -278,5 +283,17 @@ class Event
     public function getIsPublished()
     {
         return $this->is_published;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

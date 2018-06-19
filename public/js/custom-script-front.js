@@ -298,7 +298,14 @@
 
         $('.tooltipped').tooltip({delay: 50});
         $('.modal').modal();
-        $('.carousel.carousel-slider').carousel({fullWidth: true});
+        $('.tabs').tabs({
+            onShow: function(){
+                $('.carousel.carousel-slider').carousel({
+                    fullWidth: true
+                });
+            }
+
+        });
         // initMap();
 
     }

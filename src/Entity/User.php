@@ -146,4 +146,9 @@ class User
     {
         return $this->center;
     }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 }

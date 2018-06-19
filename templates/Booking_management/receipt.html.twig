@@ -4,52 +4,156 @@
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>{% block title %} Taqwira | Plateforme {% endblock %}</title>
-    <!-- ICONS -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- CORE CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+        body{
+            font-family: "Roboto", sans-serif;
+        }
+        hr.style1{
+            border-top: 1px dotted #8c8b8b;
+        }
+        img {
+            float: left;
+            margin-right: 15px;
+        }
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .row .col {
+            float: left;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 0.75rem;
+            min-height: 1px;
+        }
+
+        .row .col[class*="push-"], .row .col[class*="pull-"] {
+            position: relative;
+        }
+
+        .row .col.s2 {
+            width: 16.6666666667%;
+            margin-left: auto;
+            left: auto;
+            right: auto;
+        }
+
+        .row .col.s6 {
+            width: 50%;
+            margin-left: auto;
+            left: auto;
+            right: auto;
+        }
+
+        .row .col.s10 {
+            width: 83.3333333333%;
+            margin-left: auto;
+            left: auto;
+            right: auto;
+        }
+
+        .row .col.s12 {
+            width: 100%;
+            margin-left: auto;
+            left: auto;
+            right: auto;
+        }
+
+        .card-panel {
+            -webkit-transition: -webkit-box-shadow .25s;
+            transition: -webkit-box-shadow .25s;
+            transition: box-shadow .25s;
+            transition: box-shadow .25s, -webkit-box-shadow .25s;
+            padding: 24px;
+            margin: 0.5rem 0 1rem 0;
+            border-radius: 2px;
+            background-color: #fff;
+        }
+
+        .flow-text {
+            font-weight: 300;
+            font-size: 1.2rem;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+
+        .grey {
+            background-color: #9e9e9e !important;
+        }
+
+        .grey.lighten-3 {
+            background-color: #eeeeee !important;
+        }
+
+    </style>
 </head>
 <body>
 
-<div id="booking-login" class="block">
+<div id="content" class="block">
     <div class="row">
-        <div class="col s12 m8 offset-m2" style="margin-top: 1rem">
+        <div class="col s12">
             <div class="row">
-                <div class="col s12 card-panel z-depth-1">
-                    <h5 class="flow-text"><i class="fas fa-ticket-alt left"></i>Réservation Réf°:<span><b>{{ booking.reference }}</b></span></h5>
+                <div class="col s10">
+                    <h5 class="flow-text"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI3MS4wNDMgMjcxLjA0MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjcxLjA0MyAyNzEuMDQzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+CjxnPgoJPHBhdGggZD0iTTgyLjkwNiw5Ni40ODVsODYuOC00NS40MDVjMy40NjEtMS44MTEsNy4zNDUtMi43NjgsMTEuMjMzLTIuNzY4YzkuMDY4LDAsMTcuMzExLDQuOTg4LDIxLjUxNCwxMy4wMmwxOC4zOSwzNS4xNTNoMTMuNjc1ICAgYzEyLjM1OCwwLDIzLjEwMyw3LjA0NSwyOC40MjcsMTcuMzI5YzcuNTQ0LTQuNjMsMTAuMzI4LTE0LjM2Nyw2LjE2NC0yMi4zMjhsLTI4Ljg1NS01NS4xNjEgICBjLTMuMDMzLTUuNzk5LTguOTQ2LTkuMTE3LTE1LjA2Ni05LjExN2MtMi42NTQsMC01LjM0NiwwLjYyMy03Ljg2LDEuOTM4bC0wLjQ1MSwwLjIzNWwtMy43ODItNy4yMzIgICBjLTMuMDMzLTUuNzk5LTguOTQ2LTkuMTE2LTE1LjA2NS05LjExNmMtMi42NTQtMC4wMDEtNS4zNDYsMC42MjMtNy44NiwxLjkzOUwzNC4zMyw5Ni40ODljMC4wNTEsMCwwLjEwMS0wLjAwNCwwLjE1My0wLjAwNEg4Mi45MDYgICB6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8cGF0aCBkPSJNMTgwLjkzOSw2My4zMTJjLTEuNDk2LDAtMi45MzcsMC4zNTUtNC4yNzksMS4wNTlsLTYxLjM5MiwzMi4xMTRoODguNjQ2bC0xNC43NTItMjguMiAgIEMxODcuNTU3LDY1LjIxNywxODQuNDA1LDYzLjMxMiwxODAuOTM5LDYzLjMxMnoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0yNTIuMDEzLDEzNi42MzNoLTAuNTA5di04LjE2MWMwLTkuMzgzLTcuNjA1LTE2Ljk4Ny0xNi45ODctMTYuOTg3SDM0LjQ4M2MtOS4zODIsMC0xNi45ODcsNy42MDQtMTYuOTg3LDE2Ljk4N3Y4LjE2MSAgIGgtMC41MDlDNy42MDYsMTM2LjYzMywwLDE0NC4yMzksMCwxNTMuNjIxdjYyLjI1MmMwLDkuMzgzLDcuNjA2LDE2Ljk4OCwxNi45ODcsMTYuOTg4aDAuNTA5djguMTYxICAgYzAsOS4zODMsNy42MDYsMTYuOTg3LDE2Ljk4NywxNi45ODdoMjAwLjAzM2M5LjM4MiwwLDE2Ljk4Ny03LjYwNCwxNi45ODctMTYuOTg3di04LjE2MWgwLjUwOWM5LjM4MiwwLDE2Ljk4Ny03LjYwNSwxNi45ODctMTYuOTg4ICAgdi02Mi4yNTJDMjY5LDE0NC4yMzksMjYxLjM5NSwxMzYuNjMzLDI1Mi4wMTMsMTM2LjYzM3ogTTIyMy45MTUsMjExLjIzNWMwLDEzLjM3OS0xMC44ODUsMjQuMjY0LTI0LjI2NCwyNC4yNjRINjkuMzQ5ICAgYy0xMy4zNzksMC0yNC4yNjQtMTAuODg1LTI0LjI2NC0yNC4yNjRWMTU4LjI2YzAtMTMuMzc5LDEwLjg4NS0yNC4yNjQsMjQuMjY0LTI0LjI2NGgxMzAuMzAzICAgYzEzLjM3OSwwLDI0LjI2NCwxMC44ODUsMjQuMjY0LDI0LjI2NFYyMTEuMjM1eiIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTE5OS42NTEsMTQ4Ljk5Nkg2OS4zNDljLTUuMTA4LDAtOS4yNjQsNC4xNTUtOS4yNjQsOS4yNjR2NTIuOTc1YzAsNS4xMDgsNC4xNTUsOS4yNjQsOS4yNjQsOS4yNjRoMTMwLjMwMyAgIGM1LjEwOCwwLDkuMjY0LTQuMTU1LDkuMjY0LTkuMjY0VjE1OC4yNkMyMDguOTE1LDE1My4xNTIsMjA0Ljc2LDE0OC45OTYsMTk5LjY1MSwxNDguOTk2eiBNODIuMjUsMTYyLjk5N2g0Mi41ICAgYzQuMTQzLDAsNy41LDMuMzU3LDcuNSw3LjVjMCw0LjE0My0zLjM1Nyw3LjUtNy41LDcuNWgtNDIuNWMtNC4xNDMsMC03LjUtMy4zNTctNy41LTcuNSAgIEM3NC43NSwxNjYuMzU1LDc4LjEwNywxNjIuOTk3LDgyLjI1LDE2Mi45OTd6IE0xNjYuMjUsMjA2LjQ5N2gtODRjLTQuMTQzLDAtNy41LTMuMzU3LTcuNS03LjVjMC00LjE0MywzLjM1Ny03LjUsNy41LTcuNWg4NCAgIGM0LjE0MywwLDcuNSwzLjM1Nyw3LjUsNy41QzE3My43NSwyMDMuMTQsMTcwLjM5MywyMDYuNDk3LDE2Ni4yNSwyMDYuNDk3eiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" /> Réservation : <span class="lime-text"><b>{{ booking.reference }}</b></span></h5>
+                </div>
+                <div class="col s2">
+                    <img src="{{ qr_code_data_uri(booking.reference, { writer: 'svg', size: 150 }) }}" />
                 </div>
                 {# == Coordonnées du client ======================================================================#}
-                <div class="col s12 m4 card-panel z-depth-1 info-row hide-on-small-only">
-                    <h2 class="flow-text">Coordonnées du client</h2><hr class="style10">
+                <div class="col s6 m4 card-panel z-depth-1 info-row hide-on-small-only">
+                    <h2 class="flow-text">Coordonnées du client</h2><hr class="style1">
                     <div class="row">
-                        <div class="col s2"><i class="fas fa-user"></i></div><div class="col s10"><b>{{ booking.customer.firstname }} {{ booking.customer.lastname }}</b></div>
-                        <div class="col s2"><i class="fas fa-envelope"></i> </div><div class="col s10"><b>{{ booking.customer.email }}</b></div>
-                        <div class="col s2"><i class="fas fa-phone-volume"></i> </div><div class="col s10"><b>{{ booking.customer.phone }}</b></div>
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyNTguNzUgMjU4Ljc1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTguNzUgMjU4Ljc1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGNpcmNsZSBjeD0iMTI5LjM3NSIgY3k9IjYwIiByPSI2MCIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTEyOS4zNzUsMTUwYy02MC4wNjEsMC0xMDguNzUsNDguNjg5LTEwOC43NSwxMDguNzVoMjE3LjVDMjM4LjEyNSwxOTguNjg5LDE4OS40MzYsMTUwLDEyOS4zNzUsMTUweiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                             &nbsp;{{ booking.customer.firstname }} {{ booking.customer.lastname }}</p>
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDUxMS42MjYgNTExLjYyNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTExLjYyNiA1MTEuNjI2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQ5LjEwNiwxNzguNzI5YzYuNDcyLDQuNTY3LDI1Ljk4MSwxOC4xMzEsNTguNTI4LDQwLjY4NWMzMi41NDgsMjIuNTU0LDU3LjQ4MiwzOS45Miw3NC44MDMsNTIuMDk5ICAgIGMxLjkwMywxLjMzNSw1Ljk0Niw0LjIzNywxMi4xMzEsOC43MWM2LjE4Niw0LjQ3NiwxMS4zMjYsOC4wOTMsMTUuNDE2LDEwLjg1MmM0LjA5MywyLjc1OCw5LjA0MSw1Ljg1MiwxNC44NDksOS4yNzcgICAgYzUuODA2LDMuNDIyLDExLjI3OSw1Ljk5NiwxNi40MTgsNy43YzUuMTQsMS43MTgsOS44OTgsMi41NjksMTQuMjc1LDIuNTY5aDAuMjg3aDAuMjg4YzQuMzc3LDAsOS4xMzctMC44NTIsMTQuMjc3LTIuNTY5ICAgIGM1LjEzNy0xLjcwNCwxMC42MTUtNC4yODEsMTYuNDE2LTcuN2M1LjgwNC0zLjQyOSwxMC43NTItNi41MiwxNC44NDUtOS4yNzdjNC4wOTMtMi43NTksOS4yMjktNi4zNzYsMTUuNDE3LTEwLjg1MiAgICBjNi4xODQtNC40NzcsMTAuMjMyLTcuMzc1LDEyLjEzNS04LjcxYzE3LjUwOC0xMi4xNzksNjIuMDUxLTQzLjExLDEzMy42MTUtOTIuNzljMTMuODk0LTkuNzAzLDI1LjUwMi0yMS40MTEsMzQuODI3LTM1LjExNiAgICBjOS4zMzItMTMuNjk5LDEzLjk5My0yOC4wNywxMy45OTMtNDMuMTA1YzAtMTIuNTY0LTQuNTIzLTIzLjMxOS0xMy41NjUtMzIuMjY0Yy05LjA0MS04Ljk0Ny0xOS43NDktMTMuNDE4LTMyLjExNy0xMy40MThINDUuNjc5ICAgIGMtMTQuNjU1LDAtMjUuOTMzLDQuOTQ4LTMzLjgzMiwxNC44NDRDMy45NDksNzkuNTYyLDAsOTEuOTM0LDAsMTA2Ljc3OWMwLDExLjk5MSw1LjIzNiwyNC45ODUsMTUuNzAzLDM4Ljk3NCAgICBDMjYuMTY5LDE1OS43NDMsMzcuMzA3LDE3MC43MzYsNDkuMTA2LDE3OC43Mjl6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTQ4My4wNzIsMjA5LjI3NWMtNjIuNDI0LDQyLjI1MS0xMDkuODI0LDc1LjA4Ny0xNDIuMTc3LDk4LjUwMWMtMTAuODQ5LDcuOTkxLTE5LjY1LDE0LjIyOS0yNi40MDksMTguNjk5ICAgIGMtNi43NTksNC40NzMtMTUuNzQ4LDkuMDQxLTI2Ljk4LDEzLjcwMmMtMTEuMjI4LDQuNjY4LTIxLjY5Miw2Ljk5NS0zMS40MDEsNi45OTVoLTAuMjkxaC0wLjI4NyAgICBjLTkuNzA3LDAtMjAuMTc3LTIuMzI3LTMxLjQwNS02Ljk5NWMtMTEuMjI4LTQuNjYxLTIwLjIyMy05LjIyOS0yNi45OC0xMy43MDJjLTYuNzU1LTQuNDctMTUuNTU5LTEwLjcwOC0yNi40MDctMTguNjk5ICAgIGMtMjUuNjk3LTE4Ljg0Mi03Mi45OTUtNTEuNjgtMTQxLjg5Ni05OC41MDFDMTcuOTg3LDIwMi4wNDcsOC4zNzUsMTkzLjc2MiwwLDE4NC40Mzd2MjI2LjY4NWMwLDEyLjU3LDQuNDcxLDIzLjMxOSwxMy40MTgsMzIuMjY1ICAgIGM4Ljk0NSw4Ljk0OSwxOS43MDEsMTMuNDIyLDMyLjI2NCwxMy40MjJoNDIwLjI2NmMxMi41NiwwLDIzLjMxNS00LjQ3MywzMi4yNjEtMTMuNDIyYzguOTQ5LTguOTQ5LDEzLjQxOC0xOS42OTQsMTMuNDE4LTMyLjI2NSAgICBWMTg0LjQzN0M1MDMuNDQxLDE5My41NjksNDkzLjkyNywyMDEuODU0LDQ4My4wNzIsMjA5LjI3NXoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+                            &nbsp;{{ booking.customer.email }}</p>
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4MC41NiA0ODAuNTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4MC41NiA0ODAuNTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzY1LjM1NCwzMTcuOWMtMTUuNy0xNS41LTM1LjMtMTUuNS01MC45LDBjLTExLjksMTEuOC0yMy44LDIzLjYtMzUuNSwzNS42Yy0zLjIsMy4zLTUuOSw0LTkuOCwxLjggICAgYy03LjctNC4yLTE1LjktNy42LTIzLjMtMTIuMmMtMzQuNS0yMS43LTYzLjQtNDkuNi04OS04MWMtMTIuNy0xNS42LTI0LTMyLjMtMzEuOS01MS4xYy0xLjYtMy44LTEuMy02LjMsMS44LTkuNCAgICBjMTEuOS0xMS41LDIzLjUtMjMuMywzNS4yLTM1LjFjMTYuMy0xNi40LDE2LjMtMzUuNi0wLjEtNTIuMWMtOS4zLTkuNC0xOC42LTE4LjYtMjcuOS0yOGMtOS42LTkuNi0xOS4xLTE5LjMtMjguOC0yOC44ICAgIGMtMTUuNy0xNS4zLTM1LjMtMTUuMy01MC45LDAuMWMtMTIsMTEuOC0yMy41LDIzLjktMzUuNywzNS41Yy0xMS4zLDEwLjctMTcsMjMuOC0xOC4yLDM5LjFjLTEuOSwyNC45LDQuMiw0OC40LDEyLjgsNzEuMyAgICBjMTcuNiw0Ny40LDQ0LjQsODkuNSw3Ni45LDEyOC4xYzQzLjksNTIuMiw5Ni4zLDkzLjUsMTU3LjYsMTIzLjNjMjcuNiwxMy40LDU2LjIsMjMuNyw4Ny4zLDI1LjRjMjEuNCwxLjIsNDAtNC4yLDU0LjktMjAuOSAgICBjMTAuMi0xMS40LDIxLjctMjEuOCwzMi41LTMyLjdjMTYtMTYuMiwxNi4xLTM1LjgsMC4yLTUxLjhDNDAzLjU1NCwzNTUuOSwzODQuNDU0LDMzNi45LDM2NS4zNTQsMzE3Ljl6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTM0Ni4yNTQsMjM4LjJsMzYuOS02LjNjLTUuOC0zMy45LTIxLjgtNjQuNi00Ni4xLTg5Yy0yNS43LTI1LjctNTguMi00MS45LTk0LTQ2LjlsLTUuMiwzNy4xICAgIGMyNy43LDMuOSw1Mi45LDE2LjQsNzIuOCwzNi4zQzMyOS40NTQsMTg4LjIsMzQxLjc1NCwyMTIsMzQ2LjI1NCwyMzguMnoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNNDAzLjk1NCw3Ny44Yy00Mi42LTQyLjYtOTYuNS02OS41LTE1Ni03Ny44bC01LjIsMzcuMWM1MS40LDcuMiw5OCwzMC41LDEzNC44LDY3LjJjMzQuOSwzNC45LDU3LjgsNzksNjYuMSwxMjcuNSAgICBsMzYuOS02LjNDNDcwLjg1NCwxNjkuMyw0NDQuMzU0LDExOC4zLDQwMy45NTQsNzcuOHoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+                            &nbsp;{{ booking.customer.phone }}</p>
+                    </div>
+                </div>
+                {# == Information du centre ==========================================================================#}
+                <div class="col s6 card-panel z-depth-1 info-row hide-on-small-only">
+                    <h2 class="flow-text">Informations du centre</h2><hr class="style1">
+                    <div class="row">
+                        <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDUxMy41OTcgNTEzLjU5NyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEzLjU5NyA1MTMuNTk3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTI2My4yNzgsMC4xMDdDMTU4Ljk3Ny0zLjQwOCw3My4zMjMsODAuMDk1LDczLjMyMywxODMuNjAyYzAsMTE3LjQ2OSwxMTIuNzMsMjAyLjcyLDE3NS45MTUsMzI1LjMyMiAgIGMzLjIwOCw2LjIyNSwxMi4xNjksNi4yMzMsMTUuMzg4LDAuMDA5YzU3LjE2LTExMC4zMTcsMTU0Ljg1NC0xODQuMjkxLDE3Mi45NTktMjkwLjU2OSAgIEM0NTYuMzMxLDEwOC4zODcsMzc0Ljc3NiwzLjg2NiwyNjMuMjc4LDAuMTA3eiBNMjU2LjkyMywyNzkuNzczYy01My4xMTMsMC05Ni4xNzEtNDMuMDU5LTk2LjE3MS05Ni4xNzEgICBzNDMuMDU5LTk2LjE3MSw5Ni4xNzEtOTYuMTcxYzUzLjExMywwLDk2LjE3Miw0My4wNTksOTYuMTcyLDk2LjE3MVMzMTAuMDM2LDI3OS43NzMsMjU2LjkyMywyNzkuNzczeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                            {{ booking.field.center.address }}, {{ booking.field.center.cp }} {{ booking.field.center.city }}, {{ booking.field.center.region }}</p>
                     </div>
                 </div>
                 {#=== Détails de ma réservation ==================================================================#}
                 <div class="col s12 m8 card-panel z-depth-1">
-                    <h2 class="flow-text">Détails de ma réservation</h2><hr class="style10">
-                    <div class="row card-panel z-depth-0 grey lighten-3 booking-row">
+                    <h2 class="flow-text">Détails de ma réservation</h2><hr class="style1">
+                    <div class="row grey lighten-3">
                         <div class="col s6">
-                            <h5 class=""><i class="small material-icons left">business</i> {{ booking.field.center.name }}</h5>
-                            <i class="material-icons left">view_array</i> {{ booking.field.name }}
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDkyMC44MjUgOTIwLjgyNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTIwLjgyNSA5MjAuODI1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTg1NS4yLDY2NS4xNjJsMjMuNy0xNzYuNmMtMjMuNyw5LjItNTUsMTcuNS05My4yLDI0LjZjLTg5LjIsMTYuNy0yMDcuNSwyNS45LTMzMy4yLDI1LjlzLTI0NC4xLTkuMi0zMzMuMi0yNS45ICAgIGMtMzgtNy4xLTY5LjEtMTUuMy05Mi43LTI0LjM5OWwyNC4yLDE3Ni4zYzEsNS40LDQuOSwxMyw5LjEsMTYuNmMzMS45LDI2LjgwMSwxMDAuNyw1OSwyMzUuNiw3My4zMDF2LTE0NmMwLTEzLjgwMSwxMS4yLTI1LDI1LTI1ICAgIGgyNjMuOGMxMy44LDAsMjUsMTEuMTk5LDI1LDI1djE0Ni4zYzEzNS41LTEzLjksMjAzLjgtNDUuNjAxLDIzNi43LTczLjYwMUM4NTAuMyw2NzguMTYyLDg1NC4yLDY3MC41NjIsODU1LjIsNjY1LjE2MnoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNODk4LjUsMzQzLjQ2MmMtMi45LDEuNS02LDMtOS4zLDQuNGMtMjQuNjAxLDEwLjktNTkuNCwyMC42MDEtMTAzLjUsMjguOWMtODkuMiwxNi43LTIwNy41LDI1Ljg5OS0zMzMuMiwyNS44OTkgICAgcy0yNDQuMS05LjE5OS0zMzMuMi0yNS44OTljLTQ0LjEtOC4zLTc4LjktMTgtMTAzLjUtMjguOWMtMy4yLTEuMzk5LTYuMy0yLjktOS4yLTQuNGwxNS4yLDExMC41YzEuOSwwLjg5OSwzLjksMS44OTksNi4yLDIuODk5ICAgIGMyMi4yLDkuOCw1NS42LDE5LjEwMSw5Ni44LDI2LjhjODcuNCwxNi40LDIwMy44LDI1LjQsMzI3LjcsMjUuNHMyNDAuMy05LDMyNy43LTI1LjRjNDEuMi03LjY5OSw3NC43LTE3LDk2LjgtMjYuOCAgICBjMi40LTEuMSw0LjYtMi4xLDYuNi0zLjFMODk4LjUsMzQzLjQ2MnoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMjgsMzIwLjQ2MmMyMi4yLDkuOCw1NS42LDE5LjEsOTYuOCwyNi44bDAsMGMxLTAuNjAxLDIuMS0xLjEwMSwzLjQtMS40YzcyLjktMTcsMTkzLjctMjcuMSwzMjMuMS0yNy4xICAgIGMxMzEuMTAxLDAsMjUyLjgsMTAuMywzMjUuNSwyNy43YzAuOSwwLjE5OSwxLjgsMC42LDIuNjAxLDFjMC4zLDAsMC41LTAuMTAxLDAuOC0wLjEwMWM0MS4yLTcuNyw3NC43LTE3LDk2LjgtMjYuOCAgICBjMTgtOCwyNC45LTE0LjcsMjctMTguMmMwLjYtMSwwLjgtMS43LDAuOC0yLjJjMC0yLjItNS0xMC4zLTI3LjgtMjAuNGMtOS44LTQuMy0yMS44LTguNi0zNS43LTEyLjZ2LTE1LjZ2LTE1LjZ2LTE5LjRsNzYtNDUuMiAgICBjNC43LTIuOCw0LjctNy40LDAtMTAuMmwtODQuOC00OS44Yy0xLjktMC44LTQtMS4zLTYuMi0xLjNjLTguMywwLTE1LDYuNy0xNSwxNXYxMDMuNXYxNS40djE1LjRjLTkuOC0yLjMtMjAuMi00LjQtMzEuMS02LjUgICAgYy04My42MDEtMTUuNy0xOTMuNjAxLTI0LjYtMzExLjUtMjUuNHYtMTV2LTE1di0xNWw3Ni00NS4yYzQuNy0yLjgsNC43LTcuNCwwLTEwLjJsLTg0LjktNDkuN2MtMS44OTktMC44LTQtMS4zLTYuMi0xLjMgICAgYy04LjMsMC0xNSw2LjctMTUsMTV2MTA2LjR2MTV2MTVjLTExOC42OTksMC42LTIyOS44LDkuNi0zMTMuODk5LDI1LjRjLTEwLjEsMS45LTE5LjYsMy45LTI4LjcsNS45di0xNS40di0xNS40di0xMS42bDc2LTQ1LjIgICAgYzQuNy0yLjgsNC43LTcuNCwwLTEwLjJsLTg0LjktNDkuN2MtMS45LTAuOC00LTEuMy02LjItMS4zYy04LjMsMC0xNSw2LjctMTUsMTV2MTEwLjJ2MTUuNXYxNS42Yy0xNC45LDQuMi0yNy44LDguNy0zOC4xLDEzLjMgICAgQzUsMjg5LjY2MywwLDI5Ny43NjMsMCwyOTkuOTYyYzAsMC41LDAuMiwxLjIsMC44LDIuMkMzLjEsMzA1Ljg2MiwxMCwzMTIuNDYyLDI4LDMyMC40NjJ6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTcxMy4yLDM1Ny42NjJjLTcwLjEwMS0xMC4zLTE2My4xMDEtMTYuMS0yNjEuOC0xNi4xYy05OCwwLTE5MC43LDUuOC0yNjAuOCwxNmM3Ni40LDkuOSwxNjcsMTUuMiwyNjEuOSwxNS4yICAgIEM1NDcsMzcyLjY2Miw2MzcsMzY3LjQ2Myw3MTMuMiwzNTcuNjYyeiIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik0zMjUuNiw2MTQuMDYydjE0My44djI4LjhsLTE1LDVsLTE1LDVsLTE5LjE5OSw2LjMwMWMtNS4yLDEuNjk5LTkuNSw3LjYtOS41LDEzLjF2MTguN2MwLDUuNSw0LjUsMTAsMTAsMTBINjI4ICAgIGM1LjUsMCwxMC00LjUsMTAtMTB2LTE4LjdjMC01LjUtNC4zLTExLjQtOS41LTEzLjFsLTE5LjItNi4zMDFsLTE1LTVsLTE1LTV2LTI4LjZ2LTE0NGgtMzYuNnYxMjguOUgzNjIuMnYtMTI4LjlIMzI1LjZ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /> <b>{{ booking.field.center.name }}</b></p>
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNNzUsMTgxSDB2MTUwaDc1YzguMjc2LDAsMTUtNi43MjQsMTUtMTVWMTk2QzkwLDE4Ny43MjQsODMuMjc2LDE4MSw3NSwxODF6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMjQxLDE4Mi41MThWNjFINDVDMjAuMTg2LDYxLDAsODEuMTg2LDAsMTA2djQ1aDc1YzI0LjgxNCwwLDQ1LDIwLjE4Niw0NSw0NXYxMjBjMCwyNC44MTQtMjAuMTg2LDQ1LTQ1LDQ1SDB2NDUgICAgYzAsMjQuODE0LDIwLjE4Niw0NSw0NSw0NWgxOTZWMzI5LjQ4MmMtMzQuMTkxLTYuOTY5LTYwLTM3LjI2Ni02MC03My40ODJTMjA2LjgwOSwxODkuNDg3LDI0MSwxODIuNTE4eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQzNywxODFjLTguMjc2LDAtMTUsNi43MjQtMTUsMTV2MTIwYzAsOC4yNzYsNi43MjQsMTUsMTUsMTVoNzVWMTgxSDQzN3oiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0yNTYsMjExYy0yNC44MTQsMC00NSwyMC4xODYtNDUsNDVjMCwyNC44MTQsMjAuMTg2LDQ1LDQ1LDQ1YzI0LjgxNCwwLDQ1LTIwLjE4Niw0NS00NUMzMDEsMjMxLjE4NiwyODAuODE0LDIxMSwyNTYsMjExeiAgICAiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzcsMTUxaDc1di00NWMwLTI0LjgxNC0yMC4xODYtNDUtNDUtNDVIMjcxdjEyMS41MThjMzQuMTkxLDYuOTY5LDYwLDM3LjI2Niw2MCw3My40ODJzLTI1LjgwOSw2Ni41MTMtNjAsNzMuNDgyVjQ1MSAgICBoMTk2YzI0LjgxNCwwLDQ1LTIwLjE4Niw0NS00NXYtNDVoLTc1Yy0yNC44MTQsMC00NS0yMC4xODYtNDUtNDVWMTk2QzM5MiwxNzEuMTg2LDQxMi4xODYsMTUxLDQzNywxNTF6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /> {{ booking.field.name }}</p>
                         </div>
                         <div class="col s6 datetime-col">
-                            <p><i class="material-icons left">event</i>{{ booking.date|date('m/d/Y') }}</p>
-                            <p><i class="material-icons left">timer</i><b>{{ booking.timeStart|date('H:i') }}</b></p>
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQyNi42NjcgNDI2LjY2NyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDI2LjY2NyA0MjYuNjY3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik0zNjIuNjY3LDQyLjY2N2gtMjEuMzMzVjBoLTQyLjY2N3Y0Mi42NjdIMTI4VjBIODUuMzMzdjQyLjY2N0g2NGMtMjMuNTczLDAtNDIuNDUzLDE5LjA5My00Mi40NTMsNDIuNjY3TDIxLjMzMywzODQgICAgIGMwLDIzLjU3MywxOS4wOTMsNDIuNjY3LDQyLjY2Nyw0Mi42NjdoMjk4LjY2N2MyMy41NzMsMCw0Mi42NjctMTkuMDkzLDQyLjY2Ny00Mi42NjdWODUuMzMzICAgICBDNDA1LjMzMyw2MS43NiwzODYuMjQsNDIuNjY3LDM2Mi42NjcsNDIuNjY3eiBNMzYyLjY2NywzODRINjRWMTQ5LjMzM2gyOTguNjY3VjM4NHoiIGZpbGw9IiMwMDAwMDAiLz4KCQkJPHBvbHlnb24gcG9pbnRzPSIzMDkuOTczLDIxNC42MTMgMjg3LjM2LDE5MiAxODMuMjUzLDI5Ni4xMDcgMTM4LjAyNywyNTAuODggMTE1LjQxMywyNzMuNDkzIDE4My4yNTMsMzQxLjMzMyAgICAiIGZpbGw9IiMwMDAwMDAiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /> {{ booking.date|date('m/d/Y') }}</p>
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDMwNS4zMDggMzA1LjMwOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzA1LjMwOCAzMDUuMzA4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTkxLjY5OSw0NC4wNjhjLTUuMTgxLTQuNDY5LTExLjkxLTcuMTg1LTE5LjI4Ni03LjE4NWMtMTYuMzI5LDAtMjkuNTY0LDEzLjI0MS0yOS41NjQsMjkuNTY3ICAgIGMwLDQuNDI3LDEuMDAyLDguNjE2LDIuNzQ3LDEyLjM4NkM1OC4zNzgsNjQuMzQxLDc0LjA0Miw1Mi40NDEsOTEuNjk5LDQ0LjA2OHoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMTUyLjY1NiwzMDUuMzA4YzcyLjk5MywwLDEzMi4xNjktNTkuMTc2LDEzMi4xNjktMTMyLjE2N2MwLTY1LjM2OC00Ny40NjMtMTE5LjYxMS0xMDkuODA4LTEzMC4yNDV2LTUuMzc1di01LjM4M1YxOC4xMjQgICAgaDExLjQ2NWMzLjc5LDAsNi44NjYtNC4wNTUsNi44NjYtOS4wNjJjMC01LjAwNC0zLjA3Ni05LjA2Mi02Ljg2Ni05LjA2MmgtNjcuNjU4Yy0zLjc5NSwwLTYuODcyLDQuMDU4LTYuODcyLDkuMDYyICAgIGMwLDUuMDA3LDMuMDc2LDkuMDYyLDYuODcyLDkuMDYyaDExLjQ1OXYxNC4wMDl2NS4zODN2NS4zNzVjLTExLjEzMSwxLjktMjEuNzc3LDUuMTg2LTMxLjc3MSw5LjY4MyAgICBjLTE4LjA3Nyw4LjEyOS0zMy45ODksMjAuMTg3LTQ2LjY1MiwzNS4xMDhjLTE5LjU1NSwyMy4wNDItMzEuMzc5LDUyLjg1OC0zMS4zNzksODUuNDU0ICAgIEMyMC40ODcsMjQ2LjEzMiw3OS42NjMsMzA1LjMwOCwxNTIuNjU2LDMwNS4zMDh6IE03NC43OSw5NS44OTljNy40MzgtNy40OTgsMTUuOTQzLTEzLjkzLDI1LjI3Ny0xOS4wNDUgICAgYzE1LjYyNS04LjU3LDMzLjU0Ni0xMy40NjMsNTIuNTk0LTEzLjQ2M2M2MC41MiwwLDEwOS43NDgsNDkuMjM0LDEwOS43NDgsMTA5Ljc1YzAsNjAuNTE4LTQ5LjIyOSwxMDkuNzUxLTEwOS43NDgsMTA5Ljc1MSAgICBjLTYwLjUxNywwLTEwOS43NS00OS4yMzMtMTA5Ljc1LTEwOS43NTFDNDIuOTA2LDE0My4wNDMsNTUuMDk4LDExNS43NDcsNzQuNzksOTUuODk5eiIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik04Ni4yOTYsMjM5LjQ5OWM0LjI0Niw0LjI0Niw4Ljg5OCw4LjA4OCwxMy44ODgsMTEuNDU5YzIuNDk2LDEuNjgzLDUuMDgsMy4yNTcsNy43MzYsNC42OTYgICAgYzEzLjI5Nyw3LjIyNCwyOC41MzYsMTEuMzMsNDQuNzMxLDExLjMzYzIuMDI1LDAsNC4wMzQtMC4wNjcsNi4wMjUtMC4xOTdjOS45NjMtMC42MjYsMTkuNTA2LTIuODEyLDI4LjM4Ny02LjMxNyAgICBjMy41NTItMS4zOTcsNy0zLjAxNCwxMC4zMjQtNC44MmMyLjY2Mi0xLjQ0NCw1LjI0LTMuMDA5LDcuNzM2LTQuNjk2YzQuOTkyLTMuMzc3LDkuNjQyLTcuMjA4LDEzLjg4OC0xMS40NiAgICBjMTYuOTg0LTE2Ljk4MywyNy40ODUtNDAuNDQsMjcuNDg1LTY2LjM1N2MwLTI1LjkxNC0xMC41MDEtNDkuMzc4LTI3LjQ4NS02Ni4zNmMtNC4yNDYtNC4yNDgtOC44OTYtOC4wODUtMTMuODg4LTExLjQ1OSAgICBjLTIuNDk2LTEuNjg2LTUuMDc5LTMuMjU0LTcuNzM2LTQuNjk5Yy0zLjMyNC0xLjgwNy02Ljc3Mi0zLjQxMi0xMC4zMjQtNC44MThjLTguODc2LTMuNS0xOC40MjQtNS42OS0yOC4zODctNi4zMTkgICAgYy0xLjk5MS0wLjEzLTQtMC4xOTItNi4wMjUtMC4xOTJjLTE2LjIsMC0zMS40MzQsNC4xMDQtNDQuNzMxLDExLjMyNWMtMi42NjIsMS40NDQtNS4yNCwzLjAxNC03LjczNiw0LjY5OSAgICBjLTQuOTk0LDMuMzczLTkuNjQ3LDcuMjEtMTMuODg4LDExLjQ1OWMtMTYuOTg0LDE2Ljk4MS0yNy40ODgsNDAuNDQxLTI3LjQ4OCw2Ni4zNkM1OC44MTMsMTk5LjA1OCw2OS4zMTcsMjIyLjUxNSw4Ni4yOTYsMjM5LjQ5OSAgICB6IE0xNTIuNjU2LDk4LjQ2MnY3MC4zMDlsLTcwLjY4MiwyNy4xNjVDNjkuNDYyLDE0Ny4xOTYsMTAzLjY3Niw5OC40NjIsMTUyLjY1Niw5OC40NjJ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /> <b>{{ booking.timeStart|date('H:i') }}</b></p>
                         </div>
-                        <div class="col s12 m6 ">
+                    </div>
+                    <div class="row grey lighten-3">
+                        <div class="col s6">
                             <p class="bold"><b>Bénéficiaire</b></p>
                         </div>
-                        <div class="col s12 m6">
-                            <p><i class="material-icons left">person</i> {{ booking.customer.firstname }} {{ booking.customer.lastname }}</p>
+                        <div class="col s6">
+                            <p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyNTguNzUgMjU4Ljc1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTguNzUgMjU4Ljc1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGNpcmNsZSBjeD0iMTI5LjM3NSIgY3k9IjYwIiByPSI2MCIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTEyOS4zNzUsMTUwYy02MC4wNjEsMC0xMDguNzUsNDguNjg5LTEwOC43NSwxMDguNzVoMjE3LjVDMjM4LjEyNSwxOTguNjg5LDE4OS40MzYsMTUwLDEyOS4zNzUsMTUweiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" /></i> {{ booking.customer.firstname }} {{ booking.customer.lastname }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <hr class="style10">
+                        <hr class="style1">
                         {#<div class="col s6 right-align">TVA </div><div class="col s6 right-align"><b>7.36 €</b></div>#}
-                        <div class="col s6 right-align"><b>Prix TTC</b> </div><div class="col s6 right-align"><b>{{ booking.price }} €</b></div>
+                        <div class="col s6 right-align"><b>Prix TTC</b> </div><div class="col s6 right-align"><b>{{ booking.price }}</b> TND</div>
                     </div>
                 </div>
             </div>

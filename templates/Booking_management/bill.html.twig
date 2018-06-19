@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %} Taqwira | Plateforme {% endblock %}</title>
+    <!-- CORE CSS-->
+    <style>
+        html {
+            line-height: 1.5;
+            font-family: "Roboto", sans-serif;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        h4 {
+            font-size: 2rem;
+            line-height: 110%;
+            font-weight: 400;
+            margin: 1.14rem 0 .912rem 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1280px;
+            width: 95%;
+        }
+
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .row .col[class*="push-"], .row .col[class*="pull-"] {
+            position: relative;
+        }
+
+        .row .col {
+            float: left;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 0.75rem;
+            min-height: 1px;
+        }
+
+        .row .col.s12 {
+            width: 100%;
+            margin-left: auto;
+            left: auto;
+            right: auto;
+        }
+
+        /*@media only screen and (min-width: 601px) {*/
+            .row .col.m4 {
+                width: 25%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+            .row .col.m6 {
+                width: 50%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+            .row .col.m6 {
+                width: 50%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+            .row .col.m12 {
+                width: 100%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+        /*}*/
+
+        /*@media only screen and (min-width: 993px) {*/
+            .row .col.l4 {
+                width: 25%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+            .row .col.l5 {
+                width: 41.6666666667%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+            .row .col.l6 {
+                width: 50%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+            .row .col.l12 {
+                width: 100%;
+                margin-left: auto;
+                left: auto;
+                right: auto;
+            }
+        /*}*/
+
+
+        .section {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        td,
+        th {
+            padding: 0;
+            text-align: left;
+        }
+
+        table.striped > thead > tr{
+            border-bottom: 2px solid #CCCCCC;
+        }
+
+        table.striped > tbody > tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        table.striped > tbody > tr > td {
+            border-radius: 0;
+            padding: 10px;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+        .black-text {
+            color: #000000 !important;
+        }
+        .blue-grey {
+            background-color: #607d8b !important;
+        }
+
+        .white-text {
+            color: #FFFFFF !important;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="invoice">
+            <div class="invoice-header">
+                <div class="row section">
+                    <div class="col m6 l6">
+                        {#<img src="{{ absolute_url(asset('uploads/avatars/'~booking.bill.center.avatar)) }}" width="50" height="50" alt="center logo">#}
+                        <p><b>Client</b>
+                            <br>
+                            <span class="strong">{{ booking.customer.sexe ~' '~ booking.customer.firstname ~' '~ booking.customer.lastname }}</span>
+                            <br>
+                            <span>{{ booking.customer.email }}</span>
+                            <br>
+                            <span>{{ booking.customer.phone }}</span>
+                            <br>
+                            {#<span></span>#}
+                        </p>
+                    </div>
+
+                    <div class="col m6 l6">
+                        <div class="invoce-company-address right-align">
+                            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDkyMC44MjUgOTIwLjgyNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTIwLjgyNSA5MjAuODI1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTg1NS4yLDY2NS4xNjJsMjMuNy0xNzYuNmMtMjMuNyw5LjItNTUsMTcuNS05My4yLDI0LjZjLTg5LjIsMTYuNy0yMDcuNSwyNS45LTMzMy4yLDI1LjlzLTI0NC4xLTkuMi0zMzMuMi0yNS45ICAgIGMtMzgtNy4xLTY5LjEtMTUuMy05Mi43LTI0LjM5OWwyNC4yLDE3Ni4zYzEsNS40LDQuOSwxMyw5LjEsMTYuNmMzMS45LDI2LjgwMSwxMDAuNyw1OSwyMzUuNiw3My4zMDF2LTE0NmMwLTEzLjgwMSwxMS4yLTI1LDI1LTI1ICAgIGgyNjMuOGMxMy44LDAsMjUsMTEuMTk5LDI1LDI1djE0Ni4zYzEzNS41LTEzLjksMjAzLjgtNDUuNjAxLDIzNi43LTczLjYwMUM4NTAuMyw2NzguMTYyLDg1NC4yLDY3MC41NjIsODU1LjIsNjY1LjE2MnoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNODk4LjUsMzQzLjQ2MmMtMi45LDEuNS02LDMtOS4zLDQuNGMtMjQuNjAxLDEwLjktNTkuNCwyMC42MDEtMTAzLjUsMjguOWMtODkuMiwxNi43LTIwNy41LDI1Ljg5OS0zMzMuMiwyNS44OTkgICAgcy0yNDQuMS05LjE5OS0zMzMuMi0yNS44OTljLTQ0LjEtOC4zLTc4LjktMTgtMTAzLjUtMjguOWMtMy4yLTEuMzk5LTYuMy0yLjktOS4yLTQuNGwxNS4yLDExMC41YzEuOSwwLjg5OSwzLjksMS44OTksNi4yLDIuODk5ICAgIGMyMi4yLDkuOCw1NS42LDE5LjEwMSw5Ni44LDI2LjhjODcuNCwxNi40LDIwMy44LDI1LjQsMzI3LjcsMjUuNHMyNDAuMy05LDMyNy43LTI1LjRjNDEuMi03LjY5OSw3NC43LTE3LDk2LjgtMjYuOCAgICBjMi40LTEuMSw0LjYtMi4xLDYuNi0zLjFMODk4LjUsMzQzLjQ2MnoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMjgsMzIwLjQ2MmMyMi4yLDkuOCw1NS42LDE5LjEsOTYuOCwyNi44bDAsMGMxLTAuNjAxLDIuMS0xLjEwMSwzLjQtMS40YzcyLjktMTcsMTkzLjctMjcuMSwzMjMuMS0yNy4xICAgIGMxMzEuMTAxLDAsMjUyLjgsMTAuMywzMjUuNSwyNy43YzAuOSwwLjE5OSwxLjgsMC42LDIuNjAxLDFjMC4zLDAsMC41LTAuMTAxLDAuOC0wLjEwMWM0MS4yLTcuNyw3NC43LTE3LDk2LjgtMjYuOCAgICBjMTgtOCwyNC45LTE0LjcsMjctMTguMmMwLjYtMSwwLjgtMS43LDAuOC0yLjJjMC0yLjItNS0xMC4zLTI3LjgtMjAuNGMtOS44LTQuMy0yMS44LTguNi0zNS43LTEyLjZ2LTE1LjZ2LTE1LjZ2LTE5LjRsNzYtNDUuMiAgICBjNC43LTIuOCw0LjctNy40LDAtMTAuMmwtODQuOC00OS44Yy0xLjktMC44LTQtMS4zLTYuMi0xLjNjLTguMywwLTE1LDYuNy0xNSwxNXYxMDMuNXYxNS40djE1LjRjLTkuOC0yLjMtMjAuMi00LjQtMzEuMS02LjUgICAgYy04My42MDEtMTUuNy0xOTMuNjAxLTI0LjYtMzExLjUtMjUuNHYtMTV2LTE1di0xNWw3Ni00NS4yYzQuNy0yLjgsNC43LTcuNCwwLTEwLjJsLTg0LjktNDkuN2MtMS44OTktMC44LTQtMS4zLTYuMi0xLjMgICAgYy04LjMsMC0xNSw2LjctMTUsMTV2MTA2LjR2MTV2MTVjLTExOC42OTksMC42LTIyOS44LDkuNi0zMTMuODk5LDI1LjRjLTEwLjEsMS45LTE5LjYsMy45LTI4LjcsNS45di0xNS40di0xNS40di0xMS42bDc2LTQ1LjIgICAgYzQuNy0yLjgsNC43LTcuNCwwLTEwLjJsLTg0LjktNDkuN2MtMS45LTAuOC00LTEuMy02LjItMS4zYy04LjMsMC0xNSw2LjctMTUsMTV2MTEwLjJ2MTUuNXYxNS42Yy0xNC45LDQuMi0yNy44LDguNy0zOC4xLDEzLjMgICAgQzUsMjg5LjY2MywwLDI5Ny43NjMsMCwyOTkuOTYyYzAsMC41LDAuMiwxLjIsMC44LDIuMkMzLjEsMzA1Ljg2MiwxMCwzMTIuNDYyLDI4LDMyMC40NjJ6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTcxMy4yLDM1Ny42NjJjLTcwLjEwMS0xMC4zLTE2My4xMDEtMTYuMS0yNjEuOC0xNi4xYy05OCwwLTE5MC43LDUuOC0yNjAuOCwxNmM3Ni40LDkuOSwxNjcsMTUuMiwyNjEuOSwxNS4yICAgIEM1NDcsMzcyLjY2Miw2MzcsMzY3LjQ2Myw3MTMuMiwzNTcuNjYyeiIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik0zMjUuNiw2MTQuMDYydjE0My44djI4LjhsLTE1LDVsLTE1LDVsLTE5LjE5OSw2LjMwMWMtNS4yLDEuNjk5LTkuNSw3LjYtOS41LDEzLjF2MTguN2MwLDUuNSw0LjUsMTAsMTAsMTBINjI4ICAgIGM1LjUsMCwxMC00LjUsMTAtMTB2LTE4LjdjMC01LjUtNC4zLTExLjQtOS41LTEzLjFsLTE5LjItNi4zMDFsLTE1LTVsLTE1LTV2LTI4LjZ2LTE0NGgtMzYuNnYxMjguOUgzNjIuMnYtMTI4LjlIMzI1LjZ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+
+                            <p><span class="strong">{{ booking.bill.center.name }}</span>
+                                <br>
+                                <span>{{ booking.bill.center.address }}</span>
+                                <br>
+                                <span>{{ booking.bill.center.city ~', '~ booking.bill.center.region }}</span>
+                                <br>
+                                <span>{{ booking.bill.center.cp }}</span>
+                            </p>
+                        </div>
+
+                        <div class="invoce-company-contact right-align">
+                            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI5My43MDkgMjkzLjcwOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjkzLjcwOSAyOTMuNzA5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+CjxnPgoJPHBhdGggZD0iTTI1MS43NDIsNTguMzA3YzAsMCwwLTIuNTAyLDAtNS41OHMtMC4zODYtOS44OTQtMy44NzgtMTMuMTY4Yy0xLjc1Ny0xLjY0OC00LjI5Ny0yLjkwNC03LjkzLTIuOTA0ICAgaC0xOS42NjhjMCwwLTEwLjQ4MSwwLTEwLjQ4MSw5LjgzNFY1Ni45OGMwLDExLjE2Ni0yMC41MTEsMTAuODc4LTIwLjUxMSwxMC44NzhsLTg0LjQ2OSwwLjA0NGMwLDAtMjAuODk3LTAuNDYyLTIwLjg5Ny05LjU4OSAgIFY0NC45NTRjMCwwLDAuNjU4LTguNTAxLTEwLjQ5Mi04LjUwMUg1Mi40NDljMCwwLTEwLjUxNCwwLTEwLjUxNCw5LjE1OXYxMi43MDZjMCwwLDAuMzc1LDUuNDYxLTguMTI2LDguMjQ2ICAgYy02LjQ3OCwyLjEyMS0yMC42NDEsMC4xMDktMjcuNDg5LDUuOTcyQzIuNzY4LDc1LjU3LDAsODAuNjUsMCw4OS4wOTd2MTQ3LjgzOWMwLDAsMC42NDcsMjAuMzIsMjAuOTczLDIwLjMyaDI1MC40MzYgICBjMCwwLDIyLjMtMS4zMDUsMjIuMy0xOS42NjJWODguNDVjMCwwLTAuNjgtMjAuMzA5LTIxLjY0Ny0yMC4zMDlDMjcyLjA2Miw2OC4xMzUsMjUxLjc0Miw2Ni44MDMsMjUxLjc0Miw1OC4zMDd6IE0yMjAuMjYsNTcuNjI3ICAgYzAtNS43NzYsNC4wNjgtMTAuNDg3LDkuODM0LTEwLjQ4N2gwLjY1OGM1Ljc5OCwwLDEwLjUwOCw0LjcxLDEwLjUwOCwxMC40ODd2MjAuOTg5YzAsNS43NzYtNC4zNzMsMTAuNDgxLTEwLjE3MSwxMC40ODFoLTAuNjU4ICAgYy01Ljc5OCwwLTEwLjE3MS00LjY5OS0xMC4xNzEtMTAuNDgxVjU3LjYyN3ogTTE4NC4zMzUsMTYyLjUyNWg1Mi40NDljMi44ODgsMCw1LjIzMiwyLjMzOSw1LjIzMiw1LjI1NCAgIGMwLDIuODg4LTIuMzQ0LDUuMjM4LTUuMjMyLDUuMjM4aC01Mi40NDljLTIuODg4LDAtNS4yNTQtMi4zNS01LjI1NC01LjIzOEMxNzkuMDgxLDE2NC44NjMsMTgxLjQ0NywxNjIuNTI1LDE4NC4zMzUsMTYyLjUyNXogICAgTTI0MS43MDEsMTg5LjQwNWMwLDMuMDg5LTIuNDkxLDQuOTExLTUuNTY0LDQuOTExaC01MS4xNDRjLTMuMDczLDAtNS41NzUtMS44MjItNS41NzUtNC45MTFjMC0zLjA3MywyLjQ5Ny01LjU3NSw1LjU3NS01LjU3NSAgIGg1MS4xNDRDMjM5LjIxLDE4My44MjksMjQxLjcwMSwxODYuMzMxLDI0MS43MDEsMTg5LjQwNXogTTg5LjY3NCw5OS42MjdjMTYuMTc2LDAsMjkuMjg5LDE0LjM1NCwyOS4yODksMzMuNzExICAgYzAsMTkuMzYzLTEzLjExNCwzNS4wNzctMjkuMjg5LDM1LjA3N3MtMjkuMjc4LTE1LjcxMy0yOS4yNzgtMzUuMDc3QzYwLjM5NSwxMTMuOTgxLDczLjQ5OCw5OS42MjcsODkuNjc0LDk5LjYyN3ogTTUyLjc2NCw1Ny4wNzIgICBjMC01Ljc3Niw0LjAzNi05LjgzNCw5LjgzNC05LjgzNGgwLjY1OGM1Ljc5OCwwLDEwLjE2LDQuMDUyLDEwLjE2LDkuODM0djIxLjU0NGMwLDUuNzc2LTQuNzEsMTAuNDgxLTEwLjQ4MSwxMC40ODFINjIuMjUgICBjLTUuNzY1LDAtOS40ODYtNC42OTktOS40ODYtMTAuNDgxQzUyLjc2NCw3OC42MTYsNTIuNzY0LDU3LjA3Miw1Mi43NjQsNTcuMDcyeiBNMTQ0LjQ4OSwyMTIuNjQgICBjLTIuNTY3LDMuNjg4LTguMzIyLDMuMTk4LTguMzIyLDMuMTk4SDQ0LjEzM2MwLDAtNi4yMTEsMC40MDgtOC45NDctMy4zNjFjLTEuNDc0LTIuMDM0LTAuNDUxLTYuMTYyLDAuNTY2LTguNDY5bDIuNDgtNS42NCAgIGMwLDAsNi44NDItMTUuMzA2LDE0LjYzNy0yNC4xODJjNC43ODYtNS40MzksMTAuNDgxLTQuMTk5LDE0LjE2My0yLjQzMWMyLjI2OCwxLjA4OCw0LjgzNSw0LjI2NCw2LjcwNiw1Ljk0NSAgIGMyLjU4NCwyLjMxNyw3LjE0MSw0Ljk1LDE0LjU5OCw1LjA5Nmg0LjU3NGM3LjQ1Mi0wLjE0MSwxMi4wMDktMi43NzksMTQuNTg4LTUuMDk2YzEuODc2LTEuNjgxLDQuMzY4LTQuOTUsNi42MTQtNi4wNzUgICBjMy4zODMtMS42OTIsOC41MjMtMi43MywxMy4xODQsMi41NjdjNy44LDguODc3LDEzLjk2OCwyNC40NjUsMTMuOTY4LDI0LjQ2NWwyLjUzNSw1LjUzMiAgIEMxNDQuODQ4LDIwNi40NjcsMTQ1LjkyNSwyMTAuNTczLDE0NC40ODksMjEyLjY0eiBNMjM3LjI4NSwyMTQuOTY4aC01My40MzljLTIuODA3LDAtNS4wNzUtMi4yNTItNS4wNzUtNS4wNjkgICBjMC0yLjgxMiwyLjI2OC01LjA5Niw1LjA3NS01LjA5Nmg1My40MzljMi43NzksMCw1LjA3NSwyLjI4NCw1LjA3NSw1LjA5NkMyNDIuMzU5LDIxMi43MTYsMjQwLjA2NCwyMTQuOTY4LDIzNy4yODUsMjE0Ljk2OHoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+                            <p><span class="strong">www.taqwira.com</span>
+                                <br>
+                                <span>{{ user.email }}</span>
+                                <br>
+                                {#<span>admin@exampledomain.com</span>#}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoice-lable">
+                <div class="row">
+                    <div class="col m5 l5">
+                        <h4 class="black-text invoice-text"><b>Facture</b></h4>
+                    </div>
+                    <div class="col m4 l4 black-text">
+                        <p class="strong">Numéro: <h4 class="header">{{ booking.bill.number }}</h4></p>
+                    </div>
+                    <div class="col m4 l4 black-text">
+                        <p class="strong">Date: <h4 class="header">{{ booking.bill.created|date('d/m/Y') }}</h4></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoice-table">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <table class="striped">
+                            <thead>
+                            <tr>
+                                <th data-field="reference">Référence</th>
+                                <th data-field="field">Terrain</th>
+                                <th data-field="date">Date</th>
+                                <th data-field="time">Temps</th>
+                                <th data-field="price">Prix HT</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ booking.reference }}</td>
+                                <td>{{ booking.field.name }}</td>
+                                <td>{{ booking.date|date('d/m/Y') }}</td>
+                                <td>{{ booking.timeStart|date('H:i') }}</td>
+                                <td>{{ booking.price }}</td>
+                            </tr>
+                            {% set tax = booking.price*11/100 %}
+                            {% set amount = booking.price - tax %}
+                            <tr>
+                                <td colspan="3"></td>
+                                <td><b>Sous Total:</b></td>
+                                <td>TND {{ amount }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td><b>Tax 11.00%</b></td>
+                                <td>TND {{ tax }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="blue-grey white-text">Total TTC</td>
+                                <td class="blue-grey strong white-text">TND {{ booking.price }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="invoice-footer">
+                <div class="row">
+                    <div class="col m6 l6">
+                        <p class="strong">Mode de paiement</p>
+                        {#<p>Please make the cheque to: AMANDA ORTON</p>#}
+                        {#<p class="strong">Termes &amp; conditions</p>#}
+                        {#<ul>#}
+                            {#<li>You know, being a test pilot isn't always the healthiest business in the world.</li>#}
+                            {#<li>We predict too much for the next year and yet far too little for the next 10.</li>#}
+                        {#</ul>#}
+                    </div>
+                    <div class="col m6 l6 right-align">
+                        <p>Approuvé par</p>
+                        {#<img src="{{ absolute_url(asset('public/images/signature-scan.png')) }}" alt="signature">#}
+                        <p class="header">{{ user.firstname ~' '~ user.firstname }}</p>
+                        <p>Propriétaire du centre</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

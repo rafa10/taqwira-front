@@ -1,4 +1,7 @@
 {
+    "bacon/bacon-qr-code": {
+        "version": "1.0.3"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -59,11 +62,26 @@
     "egulias/email-validator": {
         "version": "2.1.4"
     },
-    "h4cc/wkhtmltopdf-amd64": {
-        "version": "0.12.4"
+    "endroid/installer": {
+        "version": "1.0.3"
+    },
+    "endroid/qr-code": {
+        "version": "3.2.12"
+    },
+    "endroid/qr-code-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "b9fcbe18b537c63bf61d3c3be8116a00a85c8e2e"
+        }
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "khanamiryan/qrcode-detector-decoder": {
+        "version": "1.0.2"
     },
     "knplabs/knp-snappy": {
         "version": "v1.0.4"
@@ -76,6 +94,9 @@
             "version": "1.5",
             "ref": "c81bdcf4a9d4e7b1959071457f9608631865d381"
         }
+    },
+    "myclabs/php-enum": {
+        "version": "1.6.1"
     },
     "nikic/php-parser": {
         "version": "v4.0.1"
@@ -109,6 +130,9 @@
             "version": "4.0",
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
+    },
+    "spipu/html2pdf": {
+        "version": "v5.1.0"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.0.2"
@@ -231,7 +255,7 @@
         "version": "v1.8.0"
     },
     "symfony/process": {
-        "version": "v4.0.11"
+        "version": "v4.1.0"
     },
     "symfony/profiler-pack": {
         "version": "v1.0.3"
@@ -276,7 +300,7 @@
         }
     },
     "symfony/templating": {
-        "version": "v4.0.11"
+        "version": "v4.1.0"
     },
     "symfony/translation": {
         "version": "3.3",
@@ -316,6 +340,9 @@
     },
     "symfony/yaml": {
         "version": "v4.0.11"
+    },
+    "tecnickcom/tcpdf": {
+        "version": "6.2.17"
     },
     "twig/extensions": {
         "version": "1.0",

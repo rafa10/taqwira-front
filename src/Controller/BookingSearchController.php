@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Booking;
 use App\Entity\Center;
+use App\Entity\Event;
 use App\Entity\Field;
 use App\Entity\Notification;
 use App\Form\BookingType;
@@ -64,11 +65,13 @@ class BookingSearchController extends Controller
         $centerName = isset($data['center']) ? $data['center'] : null;
         $date = isset($data['date']) ? $data['date'] : date("Y-m-d");
         $date_search = new \DateTime($date);
+        $now = date('Y-m-d');
 
         $center = $em->getRepository('App:Center')->findOneBy(array('name' => $centerName));
         $fields = $em->getRepository('App:Field')->findBy(array('center' => $center));
         $user = $em->getRepository('App:User')->findOneBy(array('center' => $center));
-        $events = $em->getRepository('App:Event')->findBy(array('center' => $center), array('created' => 'DESC'));
+        $events = $em->getRepository(Event::class)->findEvent($center, $now);
+
 
         $bookingsTab = [];
         $bookings = [];
