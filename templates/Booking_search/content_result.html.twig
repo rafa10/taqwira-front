@@ -284,7 +284,7 @@
     function initMap() {
         geocoder = new google.maps.Geocoder();
         codeAddress();
-        var latlng = new google.maps.LatLng(-34.397, 150.644);
+        var latlng = new google.maps.LatLng(37.221348, 10.114012);
         var mapOptions = {
             zoom: 8,
             center: latlng
@@ -301,9 +301,10 @@
                     map: map,
                     position: results[0].geometry.location
                 });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
             }
+            // } else {
+            //     alert('Geocode was not successful for the following reason: ' + status);
+            // }
         });
     }
 </script>

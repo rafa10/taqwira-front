@@ -5,8 +5,8 @@
 {% block body %}
 
     <div id="form-booking-search" class="block grey lighten-3">
-        <!--=== Booking form ====================================================================================-->
-        <div class="row white z-depth-1" style="padding: 10px">
+        <!--=== Booking form desktop ================================================================================-->
+        <div class="row white z-depth-1 hide-on-small-only" style="padding: 10px">
             <form name="form" method="POST" action="{{ path('booking_search') }}" class="form-validation">
                 <!-- region & ville -->
                 <div class="col s12 m3 offset-m1">
@@ -33,20 +33,50 @@
                     </div>
                 </div>
                 <!-- btn -->
-                <div class="col s12 m2 hide-on-small-only" style="padding: 10px">
+                <div class="col s12 m2" style="padding: 10px">
                     <a role="button" class="btn btn-large waves-effect waves-light yellow left z-depth-1 black-text" type="button" id="search">Rechercher</a>
                 </div>
-                <!-- btn-mobile -->
-                <div class="col s12 m3 hide-on-med-only hide-on-large-only">
+            </form>
+            <!--end booking form-->
+        </div>
+        <!--=== Booking form mobile =================================================================================-->
+        <div class="row  hide-on-med-only hide-on-large-only" style="padding: 20px 10px">
+            <form name="form" method="POST" action="{{ path('booking_search_mobile') }}" class="form-validation">
+                <!-- region & ville -->
+                <div class="col s12">
                     <div class="input-field col s12">
-                        <a role="button" class="btn waves-effect waves-light right yellow z-depth-1 black-text center" type="button" id="search">Rechercher</a>
+                        <i class="material-icons prefix">location_on</i>
+                        <input type="search" id="form_ville" name="form[ville]" class="autocomplete-region">
+                        {{ form_label(form.ville, 'Ville') }}
+                    </div>
+                </div>
+                <!-- centre -->
+                <div class="col s12" id="mobile-autocompelet-center">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">business</i>
+                        <input type="search" id="form_center" name="form[center]" required="required" class="autocomplete-center">
+                        {{ form_label(form.center, 'Centre*') }}
+                    </div>
+                </div>
+                <!-- date -->
+                <div class="col s12 ">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">event</i>
+                        <input type="text" id="form_date" name="form[date]" required="required" class="datepicker">
+                        {{ form_label(form.date, 'Date*') }}
+                    </div>
+                </div>
+                <!-- btn -->
+                <div class="col s12 ">
+                    <div class="input-field col s12 center">
+                        <button class="btn-large btn-floating waves-effect waves-light yellow z-depth-1 black-text" type="submit" id="search"><i class="material-icons black-text">search</i></button>
                     </div>
                 </div>
             </form>
             <!--end booking form-->
         </div>
 
-        <!--=== Content dynamic of message and booking result= ==================================================-->
+        <!--=== Content dynamic of message and booking result========================================================-->
         <div class="row">
             <div class="col s12 m10 offset-m1">
                 <!--=== bloc test image content =====================================================================-->
@@ -101,6 +131,10 @@
 
         .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
              margin-right: 0px;
+        }
+
+        .btn-floating.btn-large i {
+            font-weight: bold;
         }
 
     </style>

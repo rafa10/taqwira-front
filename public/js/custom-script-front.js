@@ -24,6 +24,7 @@
         close: 'Fermer',
         format: 'dd-mm-yyyy'
     });
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
     // =================================================================================================================
     // Smooth target ===================================================================================================
     // =================================================================================================================
@@ -225,6 +226,8 @@
                             if (data.page=="search") {
                                 $('#autocompelet-center').empty();
                                 $('#autocompelet-center').html(data.html);
+                                $('#mobile-autocompelet-center').empty();
+                                $('#mobile-autocompelet-center').html(data.html);
                                 $('select').material_select();
                             }
                         }

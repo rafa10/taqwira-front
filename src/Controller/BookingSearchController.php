@@ -102,6 +102,53 @@ class BookingSearchController extends Controller
     }
 
     /**
+     * Search match date .
+     * @Route("/match-search-result-mobile", name="booking_search_mobile")
+     * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return Response
+     */
+    public function searchMatchMobileAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $days = $em->getRepository('App:Day')->findAll();
+
+        $data = $request->request->get('form');
+        $centerName = isset($data['center']) ? $data['center'] : null;
+        $date = isset($data['date']) ? $data['date'] : date("Y-m-d");
+        $date_search = new \DateTime($date);
+        $now = date('Y-m-d');
+
+        $center = $em->getRepository('App:Center')->findOneBy(array('name' => $centerName));
+        $fields = $em->getRepository('App:Field')->findBy(array('center' => $center));
+        $user = $em->getRepository('App:User')->findOneBy(array('center' => $center));
+        $events = $em->getRepository(Event::class)->findEvent($center, $now);
+
+
+        $bookingsTab = [];
+        $bookings = [];
+        foreach ( $fields as $field ){
+            $bookingsTab[] = $em->getRepository('App:Booking')->findBy(array('field' => $field));
+        }
+        foreach ( $bookingsTab as $index ){
+            foreach ($index as $item){
+                $bookings[] = $item;
+            }
+        }
+
+        return $this->render('Booking_search/content_result_mobile.html.twig', array(
+            'fields' => $fields,
+            'date_search' => $date_search,
+            'days' => $days,
+            'bookings' => $bookings,
+            'user' => $user,
+            'center' => $center,
+            'events' => $events
+        ));
+
+    }
+
+    /**
      * Creates a new booking match entity.
      * @Route("/match-details/{field}/{date}/{timeS}/{timeE}/{price}/", name="booking_details")
      * @ParamDecryptor(params={"field", "date", "timeS", "timeE", "price"})
