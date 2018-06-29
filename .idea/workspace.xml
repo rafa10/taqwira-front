@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75c29f3f-9863-4d7a-9248-a04ba1c4504a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/public/js/custom-script-front.js" afterPath="$PROJECT_DIR$/public/js/custom-script-front.js" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookingSearchController.php" afterPath="$PROJECT_DIR$/src/Controller/BookingSearchController.php" />
+      <change beforePath="$PROJECT_DIR$/templates/Booking_management/booking.html.twig" afterPath="$PROJECT_DIR$/templates/Booking_management/booking.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/Booking_management/receipt.html.twig" afterPath="$PROJECT_DIR$/templates/Booking_management/receipt.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/Booking_search/content_result.html.twig" afterPath="$PROJECT_DIR$/templates/Booking_search/content_result.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/Booking_search/search.html.twig" afterPath="$PROJECT_DIR$/templates/Booking_search/search.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig" afterPath="$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/Default/contact_us.html.twig" afterPath="$PROJECT_DIR$/templates/Default/contact_us.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,55 +27,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="search.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Booking_search/search.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookingSearchController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BookingSearchController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="961">
-              <caret line="138" column="66" lean-forward="false" selection-start-line="138" selection-start-column="45" selection-end-line="138" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content_result_mobile.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="content_result_mobile.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="184" column="58" lean-forward="false" selection-start-line="184" selection-start-column="58" selection-end-line="184" selection-end-column="58" />
+            <state relative-caret-position="6589">
+              <caret line="307" column="28" lean-forward="false" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom-script-front.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/custom-script-front.js">
+      <file leaf-file-name="contact_us.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/Default/contact_us.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="104" column="59" lean-forward="false" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
-              <folding />
+            <state relative-caret-position="496">
+              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <marker date="1530264431515" expanded="false" signature="751:776" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,6 +75,7 @@
       <find>€</find>
       <find>autocomplete-center</find>
       <find>carousel</find>
+      <find>card tit</find>
     </findStrings>
     <replaceStrings>
       <replace>App</replace>
@@ -121,8 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Entity/Section.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Service.php" />
         <option value="$PROJECT_DIR$/src/Entity/Video.php" />
         <option value="$PROJECT_DIR$/src/Entity/Session.php" />
         <option value="$PROJECT_DIR$/src/Entity/Day.php" />
@@ -142,10 +108,8 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/templates/video_management/video.html.twig" />
         <option value="$PROJECT_DIR$/templates/Mail/booking_subscription_mail.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Default/contact_us.html.twig" />
         <option value="$PROJECT_DIR$/templates/Booking_search/confirmation_booking.html.twig" />
         <option value="$PROJECT_DIR$/templates/Booking_search/booking_confirmation.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Booking_management/booking.html.twig" />
         <option value="$PROJECT_DIR$/templates/video_management/login_video.html.twig" />
         <option value="$PROJECT_DIR$/templates/Booking_management/login_booking.html.twig" />
         <option value="$PROJECT_DIR$/public/css/custom/custom_front.css" />
@@ -157,21 +121,25 @@
         <option value="$PROJECT_DIR$/src/Service/HTML2PDF.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/vendor/knplabs/knp-snappy/src/Knp/Snappy/Pdf.php" />
         <option value="$PROJECT_DIR$/templates/Mail/booking_mail.html.twig" />
         <option value="$PROJECT_DIR$/templates/Booking_management/bill.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/endroid_qr_code.yaml" />
-        <option value="$PROJECT_DIR$/templates/Booking_management/receipt.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/BookingManagementController.php" />
         <option value="$PROJECT_DIR$/config/packages/knp_snappy.yaml" />
         <option value="$PROJECT_DIR$/templates/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Booking_search/content_result.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/BookingSearchController.php" />
         <option value="$PROJECT_DIR$/templates/Booking_search/search.html.twig" />
         <option value="$PROJECT_DIR$/public/js/custom-script-front.js" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/Booking_search/content_result.html.twig" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" />
+        <option value="$PROJECT_DIR$/templates/Booking_management/booking.html.twig" />
+        <option value="$PROJECT_DIR$/templates/Booking_management/receipt.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/BookingManagementController.php" />
         <option value="$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig" />
+        <option value="$PROJECT_DIR$/templates/Default/contact_us.html.twig" />
       </list>
     </option>
   </component>
@@ -271,8 +239,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2652" />
-    <option name="y" value="89" />
+    <option name="x" value="2617" />
+    <option name="y" value="84" />
     <option name="width" value="1938" />
     <option name="height" value="1089" />
   </component>
@@ -292,12 +260,18 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="taqwira-front" type="b2602c69:ProjectViewProjectNode" />
               <item name="taqwira-front" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="taqwira-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="taqwira-front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="taqwira-front" type="b2602c69:ProjectViewProjectNode" />
@@ -399,7 +373,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -461,18 +434,20 @@
       <workItem from="1529567986447" duration="3160000" />
       <workItem from="1529655438694" duration="9545000" />
       <workItem from="1530000333395" duration="1193000" />
-      <workItem from="1530087891091" duration="2924000" />
+      <workItem from="1530087891091" duration="6637000" />
+      <workItem from="1530175234381" duration="4373000" />
+      <workItem from="1530259834266" duration="3432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186802000" />
+    <option name="totallyTimeSpent" value="198320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1368" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16354345" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1669506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -505,48 +480,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/Default/contact_us.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/doctrine-bridge/RegistryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Booking_search/booking_details.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-217">
-          <caret line="62" column="68" lean-forward="false" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/CustomerType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Booking_search/booking_confirmation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="25" column="121" lean-forward="false" selection-start-line="25" selection-start-column="121" selection-end-line="25" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/custom/custom_front.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1828" lean-forward="false" selection-start-line="0" selection-start-column="1812" selection-end-line="0" selection-end-column="1828" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/custom/custom_front.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -674,13 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Booking_management/booking.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="60" column="38" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="60" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/Booking_management/bill.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1256">
@@ -699,27 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Booking_management/receipt.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="99" column="6" lean-forward="false" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BookingManagementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="148" column="23" lean-forward="false" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -779,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -814,10 +712,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Booking_search/content_result.html.twig">
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="311" selection-end-column="136" />
+        <state relative-caret-position="667">
+          <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Mailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1705">
+          <caret line="55" column="32" lean-forward="false" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+          <folding>
+            <element signature="e#32#55#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2263">
+          <caret line="104" column="59" lean-forward="false" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/test/swiftmailer.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -825,42 +747,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BookingSearchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="138" column="66" lean-forward="false" selection-start-line="138" selection-start-column="45" selection-end-line="138" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="104" column="59" lean-forward="false" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
+        <state relative-caret-position="-7517">
+          <caret line="144" column="32" lean-forward="false" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/custom-script-front.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/dev/web_profiler.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="22" column="100" lean-forward="false" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Booking_search/content_result.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="182" column="204" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="204" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/NotificationManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BookingManagementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="156" column="10" lean-forward="false" selection-start-line="156" selection-start-column="10" selection-end-line="156" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Booking_management/booking.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="67" column="26" lean-forward="false" selection-start-line="64" selection-start-column="20" selection-end-line="67" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Booking_management/receipt.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1027">
+          <caret line="160" column="43" lean-forward="false" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="184" column="58" lean-forward="false" selection-start-line="184" selection-start-column="58" selection-end-line="184" selection-end-column="58" />
+        <state relative-caret-position="6589">
+          <caret line="307" column="28" lean-forward="false" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Default/contact_us.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <marker date="1530264431515" expanded="false" signature="751:776" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

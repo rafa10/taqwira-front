@@ -262,7 +262,6 @@
                                     {% if event.image != null %}
                                         <div class="card-image profile-small">
                                             <img src="https://plateforme.taqwira.com/uploads/event/{{ event.image }}" alt="sample" class="responsive-img profile-post-image">
-                                            <span class="card-title">Card Title</span>
                                         </div>
                                     {% endif %}
                                     <div class="card-content">
@@ -303,6 +302,10 @@
         }
         footer {
             padding-left: 0;
+        }
+
+        .card .card-action {
+            padding: 20px 15px;
         }
 
         .tabs .indicator{
