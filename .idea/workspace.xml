@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75c29f3f-9863-4d7a-9248-a04ba1c4504a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookingManagementController.php" afterPath="$PROJECT_DIR$/src/Controller/BookingManagementController.php" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VideoManagementController.php" afterPath="$PROJECT_DIR$/src/Controller/VideoManagementController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="BookingManagementController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BookingManagementController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/BookingManagementController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="82" column="82" lean-forward="false" selection-start-line="82" selection-start-column="82" selection-end-line="82" selection-end-column="82" />
+            <state relative-caret-position="744">
+              <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VideoManagementController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/VideoManagementController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="934">
+              <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -100,7 +110,6 @@
         <option value="$PROJECT_DIR$/public/css/custom/custom_front.min.css" />
         <option value="$PROJECT_DIR$/src/Entity/Event.php" />
         <option value="$PROJECT_DIR$/src/Repository/EventRepository.php" />
-        <option value="$PROJECT_DIR$/src/Controller/VideoManagementController.php" />
         <option value="$PROJECT_DIR$/config/bundles.php" />
         <option value="$PROJECT_DIR$/src/Service/HTML2PDF.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
@@ -124,6 +133,7 @@
         <option value="$PROJECT_DIR$/templates/Booking_search/content_result_mobile.html.twig" />
         <option value="$PROJECT_DIR$/templates/Default/contact_us.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/BookingManagementController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/VideoManagementController.php" />
       </list>
     </option>
   </component>
@@ -254,6 +264,12 @@
               <item name="taqwira-front" type="b2602c69:ProjectViewProjectNode" />
               <item name="taqwira-front" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="taqwira-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="taqwira-front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="packages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="taqwira-front" type="b2602c69:ProjectViewProjectNode" />
@@ -421,12 +437,12 @@
       <workItem from="1530087891091" duration="6637000" />
       <workItem from="1530175234381" duration="4373000" />
       <workItem from="1530259834266" duration="5923000" />
-      <workItem from="1531392489992" duration="1552000" />
+      <workItem from="1531392489992" duration="3602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202363000" />
+    <option name="totallyTimeSpent" value="204413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1368" extended-state="6" />
@@ -483,13 +499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/VideoManagementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="71" column="8" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -617,13 +626,6 @@
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="-465">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/knp_snappy.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -757,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="22" column="100" lean-forward="false" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/Booking_search/content_result.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="837">
@@ -816,10 +811,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/knp_snappy.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BookingManagementController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="82" column="82" lean-forward="false" selection-start-line="82" selection-start-column="82" selection-end-line="82" selection-end-column="82" />
+        <state relative-caret-position="744">
+          <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/VideoManagementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="934">
+          <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
           <folding />
         </state>
       </provider>

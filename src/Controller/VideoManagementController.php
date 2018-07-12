@@ -44,12 +44,10 @@ class VideoManagementController extends Controller
             $reference = isset($data['form']['reference_one']) ? $data['form']['reference_one'] : null;
             $email = isset($data['form']['email']) ? $data['form']['email'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
-
-            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
-            $field = $booking->getField();
-            $center = $field->getCenter();
-            $customer = $em->getRepository('App:Customer')->findOneBy(array('center'=>$center, 'email' => $email));
-
+            // Get customer and reference booking
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' => $customer));
+            // checking customer and reference booking
             if ($booking != null && $customer != null){
                 // Create session video
                 if(!$session->has('video')) {$session->set('video', $booking);}
