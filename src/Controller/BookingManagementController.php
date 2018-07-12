@@ -47,12 +47,10 @@ class BookingManagementController extends Controller
             $reference = isset($data['form']['reference_one']) ? $data['form']['reference_one'] : null;
             $email = isset($data['form']['email']) ? $data['form']['email'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
-
-            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
-            $field = $booking->getField();
-            $center = $field->getCenter();
-            $customer = $em->getRepository('App:Customer')->findOneBy(array('center'=>$center, 'email' => $email));
-
+            // get customer and reference booking
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('email' => $email));
+            $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference, 'customer' =>$customer));
+            // Check customer and reference booking
             if ($booking != null && $customer != null){
                 // Create session booking
                 if(!$session->has('booking')) {$session->set('booking', $booking);}
@@ -83,12 +81,10 @@ class BookingManagementController extends Controller
             $firstname = isset($data['form']['firstname']) ? $data['form']['firstname'] : null;
             $lastname = isset($data['form']['lastname']) ? $data['form']['lastname'] : null;
             $token = isset($data['form']['_token']) ? $data['form']['_token'] : null;
-
+            // Get customer and reference booking
+            $customer = $em->getRepository('App:Customer')->findOneBy(array('firstname' => $firstname, 'lastname' => $lastname));
             $booking= $em->getRepository('App:Booking')->findOneBy(array('reference' => $reference));
-            $field = $booking->getField();
-            $center = $field->getCenter();
-            $customer = $em->getRepository('App:Customer')->findOneBy(array('center' => $center, 'firstname' => $firstname, 'lastname' => $lastname));
-
+            // Check customer and reference booking
             if ($booking != null && $customer != null){
                 // Create session booking
                 if(!$session->has('booking')) {$session->set('booking', $booking);}
