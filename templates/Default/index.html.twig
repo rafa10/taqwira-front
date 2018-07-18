@@ -3,19 +3,17 @@
 {% block body %}
 <!-- //////////////////////////////////////////////////////////////////////////// -->
     <section id="booking" class="block">
-        <div class="HomeBlock-inner">
-            <div class="row btn-booking">
-                <div class="col s12 m12">
-                    <div class="col s12 center-align">
-                        <button class="btn-floating btn-large waves-effect waves-light yellow z-depth-1 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Réserver" onclick="window.location.href='{{ path('booking_page') }}'"><i class="far fa-futbol black-text"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="row para-booking">
+        <div class="container">
+            <div class="row">
                 <div class="col s12 center-align">
                     <h2 class="white-text text-header">Réservez votre terrain</h2>
                     <p class="flow-text white-text hide-on-small-only">Réservez votre terrain en ligne en choisissant votre jour et votre créneau horaire.<br>
                         Pour être sûr d'avoir un terrain réservé chaque semaine, même jour, même heure contactez votre centre.</p>
+                </div>
+            </div>
+            <div class="col s12 m12 btn-booking">
+                <div class="col s12 center-align">
+                    <button class="btn-floating btn-large waves-effect waves-light yellow z-depth-1 black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Réserver" onclick="window.location.href='{{ path('booking_page') }}'"><i class="far fa-futbol black-text"></i></button>
                 </div>
             </div>
         </div>
