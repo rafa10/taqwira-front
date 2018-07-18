@@ -36,15 +36,27 @@ body {
 /*== Home page style =================================================================================================*/
 /*====================================================================================================================*/
 
+/*#booking {*/
+    /*background: url('../../images/bg-main.jpg')  fixed center bottom / 100% ;*/
+    /*height: 600px;*/
+/*}*/
+
 #booking {
-    background: url('../../images/bg-main.jpg') no-repeat fixed center bottom / 100% ;
-    height: 600px;
+    background: no-repeat center/100% url('../../images/bg-main.jpg');
+    position: relative;
+    width: auto;
+    min-height: 320px;
+    height: 80vh;
+    margin: 0 auto;
+    border-radius: 0;
+    background-position: bottom;
 }
 
-#booking .container{
+#booking .HomeBlock-inner{
+    z-index: 2;
     position: relative;
-    /*padding: 60px 0;*/
-    top: 10rem;
+    left: 0;
+    top: 12rem;
 }
 
 #booking .btn-floating.btn-large {
@@ -63,6 +75,7 @@ body {
 }
 
 #booking h2 {
+    font-weight: 500;
     font-size: 3rem;
     line-height: 80%;
     text-shadow: 1px 1px 1px #191919;
@@ -71,6 +84,7 @@ body {
 #booking p{
     font-size: 18px;
     font-weight: 300;
+    text-shadow: 1px 1px 1px #191919;
 }
 
 #plateforme{
