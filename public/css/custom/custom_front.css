@@ -38,6 +38,10 @@ body {
 
 #booking {
     background: no-repeat bottom/100% url('../../images/bg-main.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     min-height: 320px;
     height: 80vh;
 }
